@@ -7,8 +7,8 @@ public class Room
     private Room roomSouth;
     private Room roomWest;
 
-    public Room(String roomDescripton, int roomNumber){
-        this.roomDescription = roomDescripton;
+    public Room(String roomDescription, int roomNumber){
+        this.roomDescription = roomDescription;
         this.roomNumber = roomNumber;
 
     }
@@ -82,20 +82,7 @@ public class Room
     {
         this.roomWest = roomWest;
     }
-
-    /*@Override
-    public String toString()
-    {
-        return "Room{" +
-                "roomDescription='" + roomDescription + '\'' +
-                ", roomNumber=" + roomNumber +
-                ", roomNorth=" + roomNorth +
-                ", roomEast=" + roomEast +
-                ", roomSouth=" + roomSouth +
-                ", roomWest=" + roomWest +
-                '}';
-    }
-    */
+    
 
     @Override
     public String toString(){
