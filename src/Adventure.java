@@ -18,10 +18,48 @@ public class Adventure
     public static void main(String[] args)
     {
     Adventure prg = new Adventure();
-    prg.userInterface();
+    //prg.userInterface();
+    prg.setMap();
         System.out.println(prg.currentRoom);
+    }
 
-        //TODO Spørg Partrick om hardcode del.
+
+    public void setMap(){
+        //roomOne
+        roomOne.setRoomSouth(roomFour);
+        roomOne.setRoomEast(roomTwo);
+
+        //RoomTwo
+        roomTwo.setRoomWest(roomOne);
+        roomTwo.setRoomEast(roomThree);
+
+        //RoomThree
+        roomThree.setRoomWest(roomTwo);
+        roomThree.setRoomSouth(roomSix);
+
+        //RoomFour
+        roomFour.setRoomNorth(roomOne);
+        roomFour.setRoomSouth(roomSeven);
+
+        //RoomFive
+        roomFive.setRoomSouth(roomEight);
+
+        //RoomSix
+        roomSix.setRoomNorth(roomThree);
+        roomSix.setRoomSouth(roomNine);
+
+        //RoomSeven
+        roomSeven.setRoomNorth(roomFour);
+        roomSeven.setRoomEast(roomEight);
+
+        //RoomEight
+        roomEight.setRoomWest(roomSeven);
+        roomEight.setRoomNorth(roomFive);
+        roomEight.setRoomEast(roomNine);
+
+        //RoomNine
+        roomNine.setRoomNorth(roomSix);
+        roomNine.setRoomWest(roomEight);
     }
 
 
@@ -50,8 +88,9 @@ public class Adventure
 
 
 
-    public void userInterface(){
+    public void userInterface(Adventure prg){
         Scanner sc = new Scanner(System.in);
+        prg.setMap();
         System.out.println("You are in room 1");
         System.out.println("Please select your action:");
         System.out.println("North");
