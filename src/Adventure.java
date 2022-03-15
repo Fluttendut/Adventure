@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Adventure
 {
-    int currentRoom = 1;
+
     Room roomOne = new Room("Forest",1);
     Room roomTwo = new Room("Beach",2);
     Room roomThree = new Room("City",3);
@@ -12,13 +12,14 @@ public class Adventure
     Room roomSeven = new Room("Park",7);
     Room roomEight = new Room("Train Station",8);
     Room roomNine = new Room("Church",9);
+    Room currentRoom = roomOne;
 
 
 
     public static void main(String[] args)
     {
     Adventure prg = new Adventure();
-    //prg.userInterface();
+    prg.userInterface(prg);
     prg.setMap();
         System.out.println(prg.currentRoom);
     }
@@ -72,9 +73,15 @@ public class Adventure
     {
         System.out.println("You went east");
     }
-    public void goingSouth()
+    public Room goingSouth(Room current)
     {
+        if (current.getRoomSouth() != null)
+        {
+            current = current.getRoomSouth();
+            return current;
+        }
         System.out.println("You went south");
+    return current;
     }
     public void goingWest()
     {
@@ -87,39 +94,45 @@ public class Adventure
     }
 
 
-
     public void userInterface(Adventure prg){
         Scanner sc = new Scanner(System.in);
         prg.setMap();
         System.out.println("You are in room 1");
         System.out.println("Please select your action:");
-        System.out.println("North");
-        System.out.println("East");
-        System.out.println("South");
-        System.out.println("West");
-        System.out.println("Look around");
-        String userInput;
-        userInput = sc.nextLine();
+        System.out.println("Press 1 to go North");
+        System.out.println("Press 2 to go Easts");
+        System.out.println("Press 3 to go South");
+        System.out.println("Press 4 to go West");
+        System.out.println("Press 5 to look around");
+        int userInput;
+        userInput = sc.nextInt();
 
-        switch (userInput.toLowerCase()){
-            case "north":
+
+        switch (userInput) {
+            case 1:
                 goingNorth();
                 break;
-            case "east":
+            case 2:
                 goingEast();
                 break;
-            case "south":
-                goingSouth();
+                /*in the following statement, we have prg.currentRoom this is a local variable we use to save our new
+                room in. goingSouth(prg.currentRoom) is the updated "value" returned by the logic that has been applied
+                 Pretend it says ' currentRoom = goingSouth(currentRoom). it updates the valie.
+                 */
+            case 3:
+                prg.currentRoom = goingSouth(prg.currentRoom);
                 break;
-            case "west":
+            case 4:
                 goingWest();
                 break;
-            case "look around":
+            case 5:
                 lookAround();
                 break;
             default:
                 System.out.println("NO! Wrong input! :(");
+
         }
+
 
 
     }
