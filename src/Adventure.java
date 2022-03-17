@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
-public class Adventure {
-
+public class Adventure
+{
+    //todo insert descriptions of environment
     Room roomOne = new Room("Forest", 1);
     Room roomTwo = new Room("Beach", 2);
     Room roomThree = new Room("City", 3);
@@ -12,16 +13,10 @@ public class Adventure {
     Room roomEight = new Room("Train Station", 8);
     Room roomNine = new Room("Church", 9);
     Room currentRoom = roomOne;
+    Player player = new Player();
 
-
-    public static void main(String[] args) {
-        Adventure prg = new Adventure();
-        prg.userInterface(prg);
-        prg.setMap();
-        System.out.println(prg.currentRoom);
-    }
-
-    public void setMap() {
+    public void setMap()
+    {
         //roomOne
         roomOne.setRoomSouth(roomFour);
         roomOne.setRoomEast(roomTwo);
@@ -59,9 +54,10 @@ public class Adventure {
         roomNine.setRoomWest(roomEight);
     }
 
-
-    public Room goingNorth(Room current) {
-        if (current.getRoomNorth() != null) {
+    public Room goingNorth(Room current)
+    {
+        if (current.getRoomNorth() != null)
+        {
             current = current.getRoomNorth();
             return current;
         }
@@ -69,8 +65,10 @@ public class Adventure {
         return current;
     }
 
-    public Room goingEast(Room current) {
-        if (current.getRoomEast() != null) {
+    public Room goingEast(Room current)
+    {
+        if (current.getRoomEast() != null)
+        {
             current = current.getRoomEast();
             return current;
         }
@@ -78,8 +76,10 @@ public class Adventure {
         return current;
     }
 
-    public Room goingSouth(Room current) {
-        if (current.getRoomSouth() != null) {
+    public Room goingSouth(Room current)
+    {
+        if (current.getRoomSouth() != null)
+        {
             current = current.getRoomSouth();
             return current;
         }
@@ -87,8 +87,10 @@ public class Adventure {
         return current;
     }
 
-    public Room goingWest(Room current) {
-        if (current.getRoomWest() != null) {
+    public Room goingWest(Room current)
+    {
+        if (current.getRoomWest() != null)
+        {
             current = current.getRoomWest();
             return current;
         }
@@ -96,17 +98,10 @@ public class Adventure {
         return current;
     }
 
-    public void lookAround() {
-        System.out.println("You looked around");
-        System.out.println();
-    }
-
-
-
-
-
-    public void userInterface(Adventure prg) {
+    public void userInterface(Adventure prg, Helper helper)
+    {
         Scanner sc = new Scanner(System.in);
+        boolean game = true;
         prg.setMap();
         System.out.println("You are in room 1");
         System.out.println("Please select your action:");
@@ -118,32 +113,42 @@ public class Adventure {
         int userInput;
         userInput = sc.nextInt();
 
-        //We still need to add a while loop around switch case
-        switch (userInput) {
-            case 1:
-                prg.currentRoom = goingNorth(prg.currentRoom);
-                break;
-            case 2:
-                prg.currentRoom = goingEast(prg.currentRoom);
-                break;
+        while (game == true)
+        {
+            switch (userInput)
+            {
+                case 1:
+                    prg.currentRoom = goingNorth(prg.currentRoom);
+                    break;
+                case 2:
+                    prg.currentRoom = goingEast(prg.currentRoom);
+                    break;
                 /*in the following statement, we have prg.currentRoom this is a local variable we use to save our new
                 room in. goingSouth(prg.currentRoom) is the updated "value" returned by the logic that has been applied
                  Pretend it says ' currentRoom = goingSouth(currentRoom). it updates the valie.
                  */
-            case 3:
-                prg.currentRoom = goingSouth(prg.currentRoom);
-                break;
-            case 4:
-                prg.currentRoom = goingWest(prg.currentRoom);
-                break;
-            case 5:
-                lookAround();
-                break;
-            default:
-                System.out.println("NO! Wrong input! :(");
+                case 3:
+                    prg.currentRoom = goingSouth(prg.currentRoom);
+                    break;
+                case 4:
+                    prg.currentRoom = goingWest(prg.currentRoom);
+                    break;
+                case 5:
+                    player.lookAround();
+                    //todo insert description from current room + break infinate loop + repeat ask which direction
+                    break;
+                case 6:
+                    helper.help();
+                    break;
+                case 7:
+                    game = false;
+                    //todo exitGame();
+                    break;
+                default:
+                    System.out.println("NO! Wrong input! :(");
 
+            }
         }
-
 
     }
 }
