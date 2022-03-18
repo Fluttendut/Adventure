@@ -59,9 +59,10 @@ public class Adventure
         if (current.getRoomNorth() != null)
         {
             current = current.getRoomNorth();
+            //moved the sout inside the if statement, else it will not print it
+            System.out.println("You went north");
             return current;
         }
-        System.out.println("You went north");
         return current;
     }
 
@@ -70,9 +71,10 @@ public class Adventure
         if (current.getRoomEast() != null)
         {
             current = current.getRoomEast();
+            System.out.println("You went east");
             return current;
+
         }
-        System.out.println("You went east");
         return current;
     }
 
@@ -81,9 +83,9 @@ public class Adventure
         if (current.getRoomSouth() != null)
         {
             current = current.getRoomSouth();
+            System.out.println("You went south");
             return current;
         }
-        System.out.println("You went south");
         return current;
     }
 
@@ -92,63 +94,101 @@ public class Adventure
         if (current.getRoomWest() != null)
         {
             current = current.getRoomWest();
+            System.out.println("You went west");
             return current;
         }
-        System.out.println("You went west");
         return current;
     }
 
-    public void userInterface(Adventure prg, Helper helper)
+    //this method loops the game instead of the while loop above the switch
+    public void playTillExit(Adventure prg, Helper helper){
+        boolean activeGame = true;
+        while (activeGame == true){
+            activeGame = userInterface(prg, helper);
+            }
+        //userInterface(prg, helper);
+    }
+
+    //changed void to boolean so we can make the game end
+    public boolean userInterface(Adventure prg, Helper helper)
     {
+        //if(currentRoom != roomFive) {
+            //TODO add everything from the userInterface in this if statement. The scanner, the switch and everything. Then add a else statement after that ends the game if we reach room 5.
+            //TODO remove the // from the if and else above and below.
+        //}
+        //else {
+
+        //    return false;
+        //}
+
         Scanner sc = new Scanner(System.in);
         boolean game = true;
         prg.setMap();
-        System.out.println("You are in room 1");
+        //Current room needs to be put here instead of hard coded  'you are in room 1'
+        System.out.println(currentRoom);
         System.out.println("Please select your action:");
         System.out.println("Press 1 to go North");
         System.out.println("Press 2 to go Easts");
         System.out.println("Press 3 to go South");
         System.out.println("Press 4 to go West");
         System.out.println("Press 5 to look around");
+        System.out.println("Press 6 for help");
+        System.out.println("Press 7 to end the game");
         int userInput;
         userInput = sc.nextInt();
 
-        while (game == true)
-        {
+        //Removed and a loop method is added on line 104
+        //while (game == true)
+        //{
             switch (userInput)
             {
                 case 1:
                     prg.currentRoom = goingNorth(prg.currentRoom);
-                    break;
+                    game = false;
+                    return true;
+                    //break;
                 case 2:
                     prg.currentRoom = goingEast(prg.currentRoom);
-                    break;
+                    game = false;
+                    return true;
+                    //break;
+
                 /*in the following statement, we have prg.currentRoom this is a local variable we use to save our new
                 room in. goingSouth(prg.currentRoom) is the updated "value" returned by the logic that has been applied
-                 Pretend it says ' currentRoom = goingSouth(currentRoom). it updates the valie.
+                 Pretend it says ' currentRoom = goingSouth(currentRoom). it updates the value.
                  */
                 case 3:
                     prg.currentRoom = goingSouth(prg.currentRoom);
-                    break;
+                    game = false;
+                    return true;
+                    //break;
                 case 4:
                     prg.currentRoom = goingWest(prg.currentRoom);
-                    break;
+                    game = false;
+                    return true;
+                    //break;
                 case 5:
                     player.lookAround();
-                    //todo insert description from current room + break infinate loop + repeat ask which direction
-                    break;
+                    currentRoom.toString();
+                    game = false;
+                    return true;
+                    //break;
                 case 6:
                     helper.help();
-                    break;
+                    game = false;
+                    return true;
+                    //break;
                 case 7:
                     game = false;
-                    //todo exitGame();
-                    break;
+                    System.out.println("Thank you for playing");
+                    return false;
+                    //break;
                 default:
+                    game = false;
                     System.out.println("NO! Wrong input! :(");
-
+                    return true;
             }
-        }
+        //}
 
     }
 }
