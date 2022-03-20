@@ -15,14 +15,31 @@ public class Adventure
     Room roomSeven = new Room("Park", 7);
     Room roomEight = new Room("Train Station", 8);
     Room roomNine = new Room("Church", 9);
+    //Room room10 = new Room("Darkness", 10);
     Room currentRoom = roomOne;
     Player player = new Player();
 
     public Adventure()
     {
         //here an item is created and placed in a room
-        Item item1 = new Item("axe");
+        //roomOne items
+        Item item1 = new Item("Axe");
         roomOne.addItems(item1);
+        //roomTwo items
+        Item item2 = new Item("Shield");
+        roomTwo.addItems(item2);
+        Item item3 = new Item("Sword");
+        roomTwo.addItems(item3);
+        //roomThree
+        Item item4 = new Item("Armor");
+        roomTwo.addItems(item4);
+        Item item5 = new Item("torch");
+        roomTwo.addItems(item5); //counters darkness if it is implemented
+
+        //roomEight items
+        Item item10 = new Item("potion");
+        roomTwo.addItems(item10); //refills hp if hp is implemented
+
     }
 
     public void setMap()
