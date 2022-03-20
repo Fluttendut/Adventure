@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Room
 {
     private String roomDescription;
@@ -7,13 +9,23 @@ public class Room
     private Room roomSouth;
     private Room roomWest;
 
+    // here we create an empty arrayList of the class item, and also a constructor that instantiate the ArrayList constructor
+    public ArrayList <Item> items = new  ArrayList <Item> ();
+
+    public Room(String roomDescription, int roomNumber, ArrayList<Item> items)
+    {
+        this.roomDescription = roomDescription;
+        this.roomNumber = roomNumber;
+        this.items = items;
+
+    }
     public Room(String roomDescription, int roomNumber)
     {
         this.roomDescription = roomDescription;
         this.roomNumber = roomNumber;
 
     }
-
+    //overloaded constructor
     public Room(String roomDescription, int roomNumber, Room roomNorth, Room roomEast, Room roomSouth, Room roomWest)
     {
         this.roomDescription = roomDescription;
@@ -22,6 +34,23 @@ public class Room
         this.roomEast = roomEast;
         this.roomSouth = roomSouth;
         this.roomWest = roomWest;
+    }
+
+    public Item takeItem(String targetItem)
+    {
+        //we have the name of the item we would like to find, if we find the item we are searching for, it will be returned in resault, if not we will return null;
+        Item result = null;
+        for (int i = 0; i < items.size(); i++)
+        {
+            //this will return the item at location i
+            if(items.get(i).name1.equalsIgnoreCase(targetItem))
+            {
+             result = items.get(i);
+             items.remove(i);
+             break;
+            }
+        }
+        return result;
     }
 
     public String getRoomDescription()
@@ -83,11 +112,28 @@ public class Room
     {
         this.roomWest = roomWest;
     }
+    public ArrayList<Item> getItems() {
+        return items;
+    }
 
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
+    }
+
+    public void addItems(Item item)
+    {
+        items.add(item);
+    }
 
     @Override
     public String toString()
     {
-        return "You are in room " + roomNumber + " it is a " + roomDescription;
+        String itemStr ="";
+        for (Item item: items)
+        {
+            itemStr = itemStr + item.toString() + ", ";
+        }
+
+        return "You are in room " + roomNumber + " it is a " + roomDescription + " with items: " + itemStr;
     }
 }

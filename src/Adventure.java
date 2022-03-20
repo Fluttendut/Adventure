@@ -1,7 +1,10 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.*;
 
 public class Adventure
 {
+
     //todo insert descriptions of environment
     Room roomOne = new Room("Forest", 1);
     Room roomTwo = new Room("Beach", 2);
@@ -14,6 +17,13 @@ public class Adventure
     Room roomNine = new Room("Church", 9);
     Room currentRoom = roomOne;
     Player player = new Player();
+
+    public Adventure()
+    {
+        //here an item is created and placed in a room
+        Item item1 = new Item("axe");
+        roomOne.addItems(item1);
+    }
 
     public void setMap()
     {
@@ -105,7 +115,7 @@ public class Adventure
         boolean activeGame = true;
         while (activeGame == true){
             activeGame = userInterface(prg, helper);
-            }
+        }
         //userInterface(prg, helper);
     }
 
@@ -113,8 +123,8 @@ public class Adventure
     public boolean userInterface(Adventure prg, Helper helper)
     {
         //if(currentRoom != roomFive) {
-            //TODO add everything from the userInterface in this if statement. The scanner, the switch and everything. Then add a else statement after that ends the game if we reach room 5.
-            //TODO remove the // from the if and else above and below.
+        //TODO add everything from the userInterface in this if statement. The scanner, the switch and everything. Then add a else statement after that ends the game if we reach room 5.
+        //TODO remove the // from the if and else above and below.
         //}
         //else {
 
@@ -132,62 +142,100 @@ public class Adventure
         System.out.println("Press 3 to go South");
         System.out.println("Press 4 to go West");
         System.out.println("Press 5 to look around");
-        System.out.println("Press 6 for help");
-        System.out.println("Press 7 to end the game");
+        System.out.println("Press 6 to pick up item");
+        System.out.println("press 7 to display inventory");
+        System.out.println("press 8 to drop item");
+        System.out.println("Press 9 for help");
+        System.out.println("Press 10 to end the game");
         int userInput;
         userInput = sc.nextInt();
 
         //Removed and a loop method is added on line 104
         //while (game == true)
         //{
-            switch (userInput)
-            {
-                case 1:
-                    prg.currentRoom = goingNorth(prg.currentRoom);
-                    game = false;
-                    return true;
-                    //break;
-                case 2:
-                    prg.currentRoom = goingEast(prg.currentRoom);
-                    game = false;
-                    return true;
-                    //break;
+        switch (userInput)
+        {
+            case 1:
+                prg.currentRoom = goingNorth(prg.currentRoom);
+                game = false;
+                return true;
+            //break;
+            case 2:
+                prg.currentRoom = goingEast(prg.currentRoom);
+                game = false;
+                return true;
+            //break;
 
                 /*in the following statement, we have prg.currentRoom this is a local variable we use to save our new
                 room in. goingSouth(prg.currentRoom) is the updated "value" returned by the logic that has been applied
                  Pretend it says ' currentRoom = goingSouth(currentRoom). it updates the value.
                  */
-                case 3:
-                    prg.currentRoom = goingSouth(prg.currentRoom);
-                    game = false;
+            case 3:
+                prg.currentRoom = goingSouth(prg.currentRoom);
+                game = false;
+                return true;
+            //break;
+            case 4:
+                prg.currentRoom = goingWest(prg.currentRoom);
+                game = false;
+                return true;
+            //break;
+            case 5:
+                player.lookAround();
+                currentRoom.toString();
+                game = false;
+                return true;
+            //break;
+            case 6:
+                System.out.println("witch item would you like to take?");
+                sc.nextLine();
+                String targetItem = sc.nextLine();
+                Item item = currentRoom.takeItem(targetItem);
+                if(item == null)
+                {
+                    System.out.println("this item doesnt exist");
+                }
+                else
+                {
+                    System.out.println("you picked up the item");
+                    player.getItemInventory().add(item);
+                }
+                return true;
+
+            case 7:
+                player.displayInventory();
                     return true;
-                    //break;
-                case 4:
-                    prg.currentRoom = goingWest(prg.currentRoom);
-                    game = false;
-                    return true;
-                    //break;
-                case 5:
-                    player.lookAround();
-                    currentRoom.toString();
-                    game = false;
-                    return true;
-                    //break;
-                case 6:
-                    helper.help();
-                    game = false;
-                    return true;
-                    //break;
-                case 7:
-                    game = false;
-                    System.out.println("Thank you for playing");
-                    return false;
-                    //break;
-                default:
-                    game = false;
-                    System.out.println("NO! Wrong input! :(");
-                    return true;
-            }
+            case 8:
+                System.out.println("witch item would you like to drop?");
+                sc.nextLine();
+                String targetItemToDrop = sc.nextLine();
+                Item itemToDrop = player.dropItem(targetItemToDrop);
+                if(itemToDrop == null)
+                {
+                    System.out.println("You dont have that item");
+                }
+                else
+                {
+                    System.out.println("you dropped the item");
+                    currentRoom.getItems().add(itemToDrop);
+                }
+                return true;
+
+            case 9:
+                helper.help();
+                game = false;
+                return true;
+            //break;
+            case 10:
+                game = false;
+                System.out.println("Thank you for playing");
+                return false;
+            //break;
+            default:
+                game = false;
+                System.out.println("NO! Wrong input! :(");
+                return true;
+        }
         //}
 
     }

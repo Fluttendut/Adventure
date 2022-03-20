@@ -4,7 +4,6 @@ public class Helper
     {
         System.out.println("""
                 Here are some keywords you can use throughout the game:
-
                 look      = Looking around at the current location
                 go east   = Moves player towards east
                 go west   = Moves player towards west
