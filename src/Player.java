@@ -42,7 +42,7 @@ public class Player
     }
     public Item dropItem(String targetItem)
     {
-        //we have the name of the item we would like to find, if we find the item we are searching for, it will be returned in resault, if not we will return null;
+        //TODO we have the name of the item we would like to find, if we find the item we are searching for, it will be returned in resault, if not we will return null;
         Item result = null;
         for (int i = 0; i < itemInventory.size(); i++)
         {

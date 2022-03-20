@@ -1,20 +1,18 @@
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.*;
 
 public class Adventure
 {
 
     //todo insert descriptions of environment
-    Room roomOne = new Room("Forest", 1);
-    Room roomTwo = new Room("Beach", 2);
-    Room roomThree = new Room("City", 3);
-    Room roomFour = new Room("Mountain", 4);
-    Room roomFive = new Room("Apartment", 5);
-    Room roomSix = new Room("Mall", 6);
-    Room roomSeven = new Room("Park", 7);
-    Room roomEight = new Room("Train Station", 8);
-    Room roomNine = new Room("Church", 9);
+    Room roomOne = new Room("You are in a beautiful forest! You see trees everywhere and hear the birds chipping in the crowns", 1);
+    Room roomTwo = new Room("You are at a white lush beach with the clearest blue water! The sound of water is calming.", 2);
+    Room roomThree = new Room("You are in a busy tavern! The ale is sTrOnK! Watch out for pick pockets!", 3);
+    Room roomFour = new Room("You are in the mountains! The air so refreshing. Take care and mind the mountain goats!", 4);
+    Room roomFive = new Room("You are in a dark dungeon! the air is moist and heavy. Try not to get lost!", 5);
+    Room roomSix = new Room("You are at the castle! The halls are decorated with beautiful art and the food is amazing!", 6);
+    Room roomSeven = new Room("You are at the lava pits of #*@?%! Don't step in the hot stuff! ", 7);
+    Room roomEight = new Room("You are at the dragons lair! It is not here at the moment, but be careful as it might come back!", 8);
+    Room roomNine = new Room("You are walking down a country road! The road is so long, so long....", 9);
     //Room room10 = new Room("Darkness", 10);
     Room currentRoom = roomOne;
     Player player = new Player();
@@ -86,7 +84,6 @@ public class Adventure
         if (current.getRoomNorth() != null)
         {
             current = current.getRoomNorth();
-            //moved the sout inside the if statement, else it will not print it
             System.out.println("You went north");
             return current;
         }
@@ -133,25 +130,15 @@ public class Adventure
         while (activeGame == true){
             activeGame = userInterface(prg, helper);
         }
-        //userInterface(prg, helper);
     }
 
     //changed void to boolean so we can make the game end
     public boolean userInterface(Adventure prg, Helper helper)
     {
-        //if(currentRoom != roomFive) {
-        //TODO add everything from the userInterface in this if statement. The scanner, the switch and everything. Then add a else statement after that ends the game if we reach room 5.
-        //TODO remove the // from the if and else above and below.
-        //}
-        //else {
-
-        //    return false;
-        //}
 
         Scanner sc = new Scanner(System.in);
         boolean game = true;
         prg.setMap();
-        //Current room needs to be put here instead of hard coded  'you are in room 1'
         System.out.println(currentRoom);
         System.out.println("Please select your action:");
         System.out.println("Press 1 to go North");
@@ -167,23 +154,20 @@ public class Adventure
         int userInput;
         userInput = sc.nextInt();
 
-        //Removed and a loop method is added on line 104
-        //while (game == true)
-        //{
+
         switch (userInput)
         {
             case 1:
                 prg.currentRoom = goingNorth(prg.currentRoom);
                 game = false;
                 return true;
-            //break;
             case 2:
                 prg.currentRoom = goingEast(prg.currentRoom);
                 game = false;
                 return true;
-            //break;
 
-                /*in the following statement, we have prg.currentRoom this is a local variable we use to save our new
+
+                /*In the following statement, we have prg.currentRoom this is a local variable we use to save our new
                 room in. goingSouth(prg.currentRoom) is the updated "value" returned by the logic that has been applied
                  Pretend it says ' currentRoom = goingSouth(currentRoom). it updates the value.
                  */
@@ -191,18 +175,15 @@ public class Adventure
                 prg.currentRoom = goingSouth(prg.currentRoom);
                 game = false;
                 return true;
-            //break;
             case 4:
                 prg.currentRoom = goingWest(prg.currentRoom);
                 game = false;
                 return true;
-            //break;
             case 5:
                 player.lookAround();
                 currentRoom.toString();
                 game = false;
                 return true;
-            //break;
             case 6:
                 System.out.println("witch item would you like to take?");
                 sc.nextLine();
@@ -242,18 +223,14 @@ public class Adventure
                 helper.help();
                 game = false;
                 return true;
-            //break;
             case 10:
                 game = false;
                 System.out.println("Thank you for playing");
                 return false;
-            //break;
             default:
                 game = false;
                 System.out.println("NO! Wrong input! :(");
                 return true;
         }
-        //}
-
     }
 }

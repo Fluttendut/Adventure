@@ -14,7 +14,7 @@ public class Mainmenu
         String introInput = input.nextLine();
         if (introInput.equals(1))
         {
-            //instanciating adventure and starting game
+
             prg = new Adventure();
         }
         else if (introInput.equals(2))
