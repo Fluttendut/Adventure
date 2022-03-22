@@ -11,17 +11,23 @@ public class Mainmenu
         System.out.println("Welcome to the AMAZING GAME OF ADVENTURETIME!");
         System.out.println("please choose what you would like to do");
         System.out.println("1) Embark on your epic adventure \n 2) End your adventure \n 3) help menu");
-        String introInput = input.nextLine();
-        if (introInput.equals(1))
+        //String introInput = input.nextLine(); this was commented out as it makes no sense to use a sting to compare an int. it has been replaced with an int.
+        int introInput = input.nextInt();
+
+
+        if (introInput == 1)
         {
 
             prg = new Adventure();
         }
-        else if (introInput.equals(2))
+        else if (introInput == 2)
         {
-            //todo insert exit();
+            System.out.println("thank you for playing");
+            //System.exit ends program
+            System.exit(1);
+
         }
-        else if (introInput.equals(3))
+        else if (introInput == 3)
         {
             helper.help();
         }
@@ -30,4 +36,5 @@ public class Mainmenu
             //todo insert loop to redo start up if non of options are chosen.
         }
     }
+
 }

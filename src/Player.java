@@ -40,9 +40,23 @@ public class Player
 
         }
     }
+    public boolean checkRoom(Room room)
+    {
+        if(room.isVisitedRoom() == true)
+        {
+            System.out.println("you already explored this room");
+            return true;
+        }
+        else
+        {
+            room.setVisitedRoom(true);
+        }
+        return false;
+    }
+
     public Item dropItem(String targetItem)
     {
-        //TODO we have the name of the item we would like to find, if we find the item we are searching for, it will be returned in resault, if not we will return null;
+        //we have the name of the item we would like to find, if we find the item we are searching for, it will be returned in result, if not we will return null;
         Item result = null;
         for (int i = 0; i < itemInventory.size(); i++)
         {
@@ -55,5 +69,20 @@ public class Player
             }
         }
         return result;
+    }
+    public Item teleport()
+    {
+        if(itemInventory.contains("scroll of teleportation"))
+        {
+            if (input.equals("we are not in kansas anymore"))
+            {
+
+            }
+        }
+        else
+        {
+
+        }
+        return null;
     }
 }

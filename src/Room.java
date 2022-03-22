@@ -8,6 +8,8 @@ public class Room
     private Room roomEast;
     private Room roomSouth;
     private Room roomWest;
+    private boolean visitedRoom = false;
+
 
 
     public ArrayList <Item> items = new  ArrayList <Item> ();
@@ -123,6 +125,18 @@ public class Room
     {
         items.add(item);
     }
+
+    //getter and setter for visiting rooms
+    public boolean isVisitedRoom()
+    {
+        return visitedRoom;
+    }
+
+    public void setVisitedRoom(boolean visitedRoom)
+    {
+        this.visitedRoom = visitedRoom;
+    }
+
 
     @Override
     public String toString()

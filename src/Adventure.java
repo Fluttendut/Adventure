@@ -3,7 +3,10 @@ import java.util.Scanner;
 public class Adventure
 {
 
-    //todo insert descriptions of environment
+
+    private boolean game = true;
+
+    //todo possibly do a method() for descriptions of environment
     Room roomOne = new Room("You are in a beautiful forest! You see trees everywhere and hear the birds chipping in the crowns", 1);
     Room roomTwo = new Room("You are at a white lush beach with the clearest blue water! The sound of water is calming.", 2);
     Room roomThree = new Room("You are in a busy tavern! The ale is sTrOnK! Watch out for pick pockets!", 3);
@@ -31,8 +34,14 @@ public class Adventure
         //roomThree
         Item item4 = new Item("Armor");
         roomTwo.addItems(item4);
-        Item item5 = new Item("torch");
+        Item item5 = new Item("Torch");
         roomTwo.addItems(item5); //counters darkness if it is implemented
+
+
+        Item item9 = new Item("Scroll of teleportation");
+        System.out.println("type: i dont think we are in kansas anymore");
+        roomTwo.addItems(item5);
+
 
         //roomEight items
         Item item10 = new Item("potion");
@@ -77,6 +86,18 @@ public class Adventure
         //RoomNine
         roomNine.setRoomNorth(roomSix);
         roomNine.setRoomWest(roomEight);
+    }
+
+    //getter setter for game in Mainmenu
+    Mainmenu mainmenu = new Mainmenu();
+    public boolean isGame()
+    {
+        return game;
+    }
+
+    public void setGame(boolean game)
+    {
+        this.game = game;
     }
 
     public Room goingNorth(Room current)
@@ -124,6 +145,26 @@ public class Adventure
         return current;
     }
 
+    public Room teleport()
+    {
+        if(player.itemInventory.contains("scroll of teleportation"))
+        {
+            System.out.println("type the magic words");
+            Scanner input = new Scanner(System.in);
+            String inputFromScanner = input.nextLine();
+            //ask why cant we use ignoreCase or toLowerCase on this? this is cause of a failsave in java, it needs to be passed as a string first
+            if (inputFromScanner.equalsIgnoreCase("i dont think we are in kansas anymore"))
+            {
+                return currentRoom = roomOne;
+            }
+        }
+        else
+        {
+            return currentRoom;
+        }
+            return null;
+    }
+
     //this method loops the game instead of the while loop above the switch
     public void playTillExit(Adventure prg, Helper helper){
         boolean activeGame = true;
@@ -135,25 +176,45 @@ public class Adventure
     //changed void to boolean so we can make the game end
     public boolean userInterface(Adventure prg, Helper helper)
     {
-
         Scanner sc = new Scanner(System.in);
-        boolean game = true;
-        prg.setMap();
-        System.out.println(currentRoom);
-        System.out.println("Please select your action:");
-        System.out.println("Press 1 to go North");
-        System.out.println("Press 2 to go Easts");
-        System.out.println("Press 3 to go South");
-        System.out.println("Press 4 to go West");
-        System.out.println("Press 5 to look around");
-        System.out.println("Press 6 to pick up item");
-        System.out.println("press 7 to display inventory");
-        System.out.println("press 8 to drop item");
-        System.out.println("Press 9 for help");
-        System.out.println("Press 10 to end the game");
+
+        if (player.itemInventory.contains("scroll of teleportation"))
+        {
+            prg.setMap();
+            System.out.println(currentRoom);
+            System.out.println("Please select your action:");
+            System.out.println("Press 1 to go North");
+            System.out.println("Press 2 to go Easts");
+            System.out.println("Press 3 to go South");
+            System.out.println("Press 4 to go West");
+            System.out.println("Press 5 to look around");
+            System.out.println("Press 6 to pick up item");
+            System.out.println("press 7 to display inventory");
+            System.out.println("press 8 to drop item");
+            System.out.println("Press 9 for help");
+            System.out.println("Press 10 to end the game");
+            System.out.println("press 11 to use teleportation scroll");
+        }
+        else
+        {
+            prg.setMap();
+            System.out.println(currentRoom);
+            System.out.println("Please select your action:");
+            System.out.println("Press 1 to go North");
+            System.out.println("Press 2 to go Easts");
+            System.out.println("Press 3 to go South");
+            System.out.println("Press 4 to go West");
+            System.out.println("Press 5 to look around");
+            System.out.println("Press 6 to pick up item");
+            System.out.println("press 7 to display inventory");
+            System.out.println("press 8 to drop item");
+            System.out.println("Press 9 for help");
+            System.out.println("Press 10 to end the game");
+
+        }
+
         int userInput;
         userInput = sc.nextInt();
-
 
         switch (userInput)
         {
@@ -227,6 +288,8 @@ public class Adventure
                 game = false;
                 System.out.println("Thank you for playing");
                 return false;
+            case 11:
+                teleport();
             default:
                 game = false;
                 System.out.println("NO! Wrong input! :(");
