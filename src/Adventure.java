@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Adventure
 {
 
-
     private boolean game = true;
 
     //todo possibly do a method() for descriptions of environment
@@ -16,7 +15,32 @@ public class Adventure
     Room roomSeven = new Room("You are at the lava pits of #*@?%! Don't step in the hot stuff! ", 7);
     Room roomEight = new Room("You are at the dragons lair! It is not here at the moment, but be careful as it might come back!", 8);
     Room roomNine = new Room("You are walking down a country road! The road is so long, so long....", 9);
-    //Room room10 = new Room("Darkness", 10);
+    //todo make getters and setters for connection for all the rooms
+    Room roomTen = new Room("As you enter the cave, you hear a loud crash, the way back has been blocked, there is only one way forward. you have entered a long narrow corridor, where does it lead?",10);
+    Room roomEleven = new Room("At the end of the long corridor you find yourself in complete darkness,if only you had a torch ",11);
+    Room roomTwelve = new Room("as you enter the room, you see a suspension bridge! as you cross the bridge, it snaps under you and you fall into the darkness",12);
+    Room roomThirteen = new Room("You have entered a strange looking cave with what appears to be a small shop",13);
+    Room roomFourteen = new Room("as you enter the room a log swings from the ceiling and hits you in the chest",14);
+    Room roomFifteen = new Room("You have entered a cave with shining mushrooms! this is very bright considering its a dark cave!!!",15);
+    Room roomSixteen = new Room("You wake up at the bottom of a bit, looks like there is a tunnel with light at the end of it! as you near the end of the tunnel, you see a sunflower beaming with light! how very strange",16);
+    Room roomSeventeen = new Room("you exit the shop though the backdoor, as you reach the end of the path you find a view of beautiful of a lake",17);
+    Room roomEighteen = new Room("You climb out of the underdark and feel the warmth of the sun on your skin! you have missed this feeling!",18);
+    Room roomNineteen = new Room("This looks like the entrance to a Dungeon! maybe you could find some loot",19);
+    Room roomTwenty = new Room("You have entered the dungeon, you find a split in the path you can go north or west.",20);
+    Room roomTwentyone = new Room("",21);
+    Room roomTwentytwo = new Room("",22);
+    Room roomTwentythree = new Room("",23);
+    Room roomTwentyfour = new Room("",24);
+    Room roomTwentyfive = new Room("You have entered the boss room! prepare to fight for your life!",25);
+    Room roomTwentysix = new Room("You have entered the dungeons' treasury! look at all the shiny loot just lying around",26);
+    Room roomTwentyseven = new Room("",27);
+    Room roomTwentyeight = new Room("",28);
+    Room roomTwentynine = new Room("",29);
+    Room roomThirty = new Room("Entrance to the trolls lair",30);
+    Room roomThirtyone = new Room("You have entered the trolls lair! the smell makes you nauseous",31);
+    Room roomThirtytwo = new Room("Exit from the Trolls lair, you stand High above the entrance and would have to climb down carefully",32);
+    Room roomThirtyThree = new Room("",33);
+
     Room currentRoom = roomOne;
     Player player = new Player();
 
@@ -36,7 +60,7 @@ public class Adventure
         roomTwo.addItems(item4);
         Item item5 = new Item("Torch");
         roomTwo.addItems(item5); //counters darkness if it is implemented
-
+//todo add loot to trolls lair and dungeon, preferably in the for of chests with loot in
 
         Item item9 = new Item("Scroll of teleportation");
         System.out.println("type: i dont think we are in kansas anymore");
@@ -46,7 +70,6 @@ public class Adventure
         //roomEight items
         Item item10 = new Item("potion");
         roomTwo.addItems(item10); //refills hp if hp is implemented
-
     }
 
     public void setMap()
@@ -86,6 +109,100 @@ public class Adventure
         //RoomNine
         roomNine.setRoomNorth(roomSix);
         roomNine.setRoomWest(roomEight);
+        roomNine.setRoomEast(roomThirtytwo);
+
+        //todo  make getters and setters in map
+        //RoomTen
+        roomTen.setRoomNorth(roomEleven);
+
+        //RoomEleven find a way to make random generator
+        roomEleven.setRoomNorth(roomThirteen);
+        roomEleven.setRoomSouth(roomTen);
+        roomEleven.setRoomNorth(roomFourteen);
+        roomEleven.setRoomEast(roomTwelve);
+
+        //RoomTwelve
+        roomTwelve.setRoomNorth(roomSixteen);
+
+        //RoomThirteen
+        roomThirteen.setRoomSouth(roomEleven);
+        roomThirteen.setRoomEast(roomSixteen);
+        roomThirteen.setRoomWest(roomFifteen);
+        roomThirteen.setRoomEast(roomSeventeen);
+
+        //RoomFourteen
+        roomFourteen.setRoomNorth(roomFifteen);
+
+        //RoomFifteen
+        roomFifteen.setRoomWest(roomThirteen);
+
+        //RoomSixteen
+        roomSixteen.setRoomWest(roomThirteen);
+
+        //RoomSeventeen
+        roomSeventeen.setRoomSouth(roomThirteen);
+        roomSeventeen.setRoomEast(roomEighteen);
+
+        //RoomEightteen
+        roomEighteen.setRoomEast (roomSeventeen);
+        roomEighteen.setRoomWest(roomThree);
+
+        //RoomNineteen Dungeon Entrance
+        roomNineteen.setRoomEast(roomFour);
+        roomNineteen.setRoomWest(roomTwo);
+
+        //RoomTwenty
+        roomTwenty.setRoomNorth(roomTwentyone);
+        roomTwenty.setRoomWest(roomThirtyone);
+
+        //Twentyone
+        roomTwentyone.setRoomNorth(roomTwentytwo);
+        roomTwentyone.setRoomSouth(roomTwenty);
+
+        //Twentytwo
+        roomTwentytwo.setRoomSouth(roomTwentyone);
+        roomTwentytwo.setRoomWest(roomTwentythree);
+
+        //Twentythree
+        roomTwentythree.setRoomWest(roomTwentyfour);
+        roomTwentythree.setRoomEast(roomTwentytwo);
+
+        //Twentyfour
+        roomTwentyfour.setRoomWest(roomTwentyfour);
+        roomTwentyfour.setRoomEast(roomTwentythree);
+
+        //Twentyfive
+        roomTwentyfive.setRoomSouth(roomTwentysix);
+        roomTwentyfive.setRoomEast(roomTwentyfour);
+
+        //Twentysix bossRoom/fight
+        roomTwentysix.setRoomNorth(roomTwentyfive);
+        roomTwentysix.setRoomSouth(roomTwentyeight);
+        roomTwentysix.setRoomWest(roomTwentyseven);
+
+        //Twentyseven
+        roomTwentyseven.setRoomWest(roomTwentysix);
+
+        //Twentyeight
+        roomTwentyeight.setRoomNorth(roomTwentysix);
+        roomTwentyeight.setRoomEast(roomTwentynine);
+
+        //Twentynine
+        roomTwentynine.setRoomEast(roomThirty);
+        roomTwentynine.setRoomWest(roomTwentyeight);
+
+        //Thirty
+        roomThirty.setRoomEast(roomTwentynine);
+        roomThirty.setRoomWest(roomTwenty);
+
+        //thirtyone
+        roomThirtyone.setRoomEast(roomThirtytwo);
+
+        //thirtytwo
+        roomThirtytwo.setRoomWest(roomThirtyThree);
+
+        //thirtythree
+        roomThirtyThree.setRoomNorth(roomNine);
     }
 
     //getter setter for game in Mainmenu
@@ -213,6 +330,8 @@ public class Adventure
 
         }
 
+        //todo implement music element, lack of better idea of where to place it.
+        //todo find and save music to loop in main folder of project
         int userInput;
         userInput = sc.nextInt();
 
