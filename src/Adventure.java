@@ -59,12 +59,12 @@ public class Adventure
         Item item4 = new Item("Armor");
         roomTwo.addItems(item4);
         Item item5 = new Item("Torch");
-        roomTwo.addItems(item5); //counters darkness if it is implemented
+        roomThree.addItems(item5); //counters darkness if it is implemented
 //todo add loot to trolls lair and dungeon, preferably in the for of chests with loot in
 
         Item item9 = new Item("Scroll of teleportation");
         System.out.println("type: i dont think we are in kansas anymore");
-        roomTwo.addItems(item5);
+        roomTwentyseven.addItems(item9);
 
 
         //roomEight items
@@ -111,7 +111,6 @@ public class Adventure
         roomNine.setRoomWest(roomEight);
         roomNine.setRoomEast(roomThirtytwo);
 
-        //todo  make getters and setters in map
         //RoomTen
         roomTen.setRoomNorth(roomEleven);
 
