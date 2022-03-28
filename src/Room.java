@@ -10,7 +10,9 @@ public class Room
     private Room roomWest;
     private boolean visitedRoom = false;
 
-
+    //coordinates for 2d array - map
+    public int X;
+    public int Y;
 
     public ArrayList <Item> items = new  ArrayList <Item> ();
 
@@ -19,14 +21,12 @@ public class Room
         this.roomDescription = roomDescription;
         this.roomNumber = roomNumber;
         this.items = items;
-
     }
 
     public Room(String roomDescription, int roomNumber)
     {
         this.roomDescription = roomDescription;
         this.roomNumber = roomNumber;
-
     }
 
     public Room(String roomDescription, int roomNumber, Room roomNorth, Room roomEast, Room roomSouth, Room roomWest)
@@ -46,11 +46,12 @@ public class Room
         {
             if(items.get(i).name1.equalsIgnoreCase(targetItem))
             {
-             result = items.get(i);
-             items.remove(i);
-             break;
+                result = items.get(i);
+                items.remove(i);
+                break;
             }
         }
+
         return result;
     }
 
@@ -147,6 +148,6 @@ public class Room
             itemStr = itemStr + item.toString() + ", ";
         }
 
-        return "You are in room " + roomNumber + " it is a " + roomDescription + " with items: " + itemStr;
+        return "You are in room " + roomNumber + " it is a " + roomDescription + " with items: " + itemStr; //add if check if no items
     }
 }

@@ -1,15 +1,19 @@
 public class Controller
 {
+    Player player = new Player();
+    Adventure prg;
+
     public void go()
     {
         Mainmenu mainmenu = new Mainmenu();
-        Player player = new Player();
-        mainmenu.mainmenu();
+        mainmenu.show(player);
+
         player.nameOfPlayer();
         player.lookAround();
-        Helper helper = new Helper();
-        Adventure prg = new Adventure();
-        prg.playTillExit(prg, helper);
 
+        prg = new Adventure(player);
+        Helper helper = new Helper();
+
+        prg.playTillExit(helper);
     }
 }

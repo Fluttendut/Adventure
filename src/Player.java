@@ -6,7 +6,7 @@ public class Player
 {
     String nameOfPlayer;
     Scanner input = new Scanner(System.in);
-    Room roomOne;
+    Room roomOne; //redundant
     private int hp;
     private Random hpRandomizer = new Random();
     private Random attackRoll = new Random();
@@ -14,29 +14,25 @@ public class Player
     //todo move monsterAC to monster class
     int monsterAC;
 
-    //todo put this is player class
-    // give acces to endurance stat from stats class and set endurance to 10 as default should be changable on level up/ on class choice.
-    private int endurance = 10;
-    private int strength = 10;
-    //todo needs a way to connect to switch case
-    String chosenClass;
-
-
+    private PlayerClass chosenClass;
 
     void nameOfPlayer()
     {
         System.out.println("What is your name brave adventure?");
-        String nameOfPlayer = input.nextLine();
-
+        nameOfPlayer = input.nextLine();
     }
 
     public void lookAround()
     {
         System.out.println("You looked around");
-        //todo insert description for current room and print it
         System.out.println();
     }
-
+    public void lookAround(Room room)
+    {
+        System.out.println("You looked around");
+        System.out.println(room.getRoomDescription());
+        System.out.println();
+    }
     //setter and getter for inventory done with ArrayList
     public void setItemInventory(ArrayList<Item> itemInventory)
     {
@@ -56,7 +52,6 @@ public class Player
         for (Item item : itemInventory)
         {
             System.out.println(item);
-
         }
     }
 
@@ -71,6 +66,7 @@ public class Player
         {
             room.setVisitedRoom(true);
         }
+
         return false;
     }
 
@@ -91,6 +87,7 @@ public class Player
         return result;
     }
 
+    //redundant
     public Item teleport(Adventure prg)
     {
         if (itemInventory.contains("scroll of teleportation"))
@@ -109,114 +106,63 @@ public class Player
 
     public void hitPoints()
     {
-        String classOfChoice = input.nextLine();
-        if (classOfChoice.equalsIgnoreCase("wizard"))
-        {
-            hp = hpRandomizer.nextInt(4) + 1 + ((endurance - 10) / 2);
-        }
-        else if (classOfChoice.equalsIgnoreCase("warrior"))
-        {
-            hp = hpRandomizer.nextInt(10) + 1 + ((endurance - 10) / 2);
-        }
-        else if (classOfChoice.equalsIgnoreCase("ranger"))
-        {
-            hp = hpRandomizer.nextInt(8) + 1 + ((endurance - 10) / 2);
-        }
-        else if (classOfChoice.equalsIgnoreCase("bard"))
-        {
-            hp = hpRandomizer.nextInt(6) + 1 + ((endurance - 10) / 2);
-        }
+        //TODO - set hp modifiers
+        /*
+        Warrior - 10
+        Wizard - 4
+        Ranager - 8
+        Bard - 6
+         */
+        hp = hpRandomizer.nextInt(chosenClass.getHitPointsmodifier()) + 1 + ((chosenClass.getConstitution() - 10) / 2);
     }
 
     public void eatFood(int hp)
     {
         if (itemInventory.contains("generic food") || itemInventory.contains("potion"))
         {
-            switch (chosenClass)
+            hp = hp + hpRandomizer.nextInt(8) + 1;
+            System.out.println("your hp is " + hp);
+            System.out.println("fight on brave adventure!");
+
+            if (itemInventory.contains("generic food"))
             {
-                case "wizard":
-                    if (itemInventory.contains("generic food"))
-                    {
-                        hp = hp + hpRandomizer.nextInt(8) + 1;
-                        System.out.println("your hp is " + hp);
-                        System.out.println("fight on brave adventure!");
-                        itemInventory.remove("food");
-                    }
-                    else
-                    {
-                        hp = hp + hpRandomizer.nextInt(8) + 1;
-                        System.out.println("your hp is " + hp);
-                        System.out.println("fight on brave adventure!");
-                        itemInventory.remove("potion");
-                    }
-                case "warrior":
-                    if (itemInventory.contains("generic food"))
-                    {
-                        hp = hp + hpRandomizer.nextInt(8) + 1;
-                        System.out.println("your hp is " + hp);
-                        System.out.println("fight on brave adventure!");
-                        itemInventory.remove("food");
-                    }
-                    else
-                    {
-                        hp = hp + hpRandomizer.nextInt(8) + 1;
-                        System.out.println("your hp is " + hp);
-                        System.out.println("fight on brave adventure!");
-                        itemInventory.remove("potion");
-                    }
-                case "ranger":
-                    if (itemInventory.contains("generic food"))
-                    {
-                        hp = hp + hpRandomizer.nextInt(8) + 1;
-                        System.out.println("your hp is " + hp);
-                        System.out.println("fight on brave adventure!");
-                        itemInventory.remove("food");
-                    }
-                    else
-                    {
-                        hp = hp + hpRandomizer.nextInt(8) + 1;
-                        System.out.println("your hp is " + hp);
-                        System.out.println("fight on brave adventure!");
-                        itemInventory.remove("potion");
-                    }
-                case "bard":
-                    if (itemInventory.contains("generic food"))
-                    {
-                        hp = hp + hpRandomizer.nextInt(8) + 1;
-                        System.out.println("your hp is " + hp);
-                        System.out.println("fight on brave adventure!");
-                        itemInventory.remove("food");
-                    }
-                    else
-                    {
-                        hp = hp + hpRandomizer.nextInt(8) + 1;
-                        System.out.println("your hp is " + hp);
-                        System.out.println("fight on brave adventure!");
-                        itemInventory.remove("potion");
-                    }
+                itemInventory.remove("food");
+            }
+            else
+            {
+                itemInventory.remove("potion");
             }
         }
         else
-            {
-                hp = hp - 10;
-                System.out.println("you starve!!!");
-            }
-        }
-        //todo make monster and player AC
-        public void attack()
         {
-           int attack = attackRoll.nextInt(20)+1;
+            hp = hp - 10;
+            System.out.println("you starve!!!");
+        }
+    }
+    //todo make monster and player AC
+    public void attack()
+    {
+        int attack = attackRoll.nextInt(20)+1;
 
-           if(attack > monsterAC)
-           {
-                damage = attackRoll.nextInt()+ (strength -10)/2;
-           }
-           else
-           {
-               System.out.println("your attack missed the monster this time");
-           }
-
+        if(attack > monsterAC)
+        {
+            damage = attackRoll.nextInt()+ (chosenClass.getStrength() -10)/2;
+        }
+        else
+        {
+            System.out.println("your attack missed the monster this time");
         }
 
     }
+
+    public PlayerClass getChosenClass() {
+        return chosenClass;
+    }
+
+    public void setChosenClass(PlayerClass chosenClass) {
+        this.chosenClass = chosenClass;
+        //todo decide where to calculate hitpoints - rename method
+        //hitPoints();
+    }
+}
 
