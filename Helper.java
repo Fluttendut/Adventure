@@ -1,7 +1,7 @@
 public class Helper
 {
     public void help()
-    { //todo update helper with new functions
+    { //todo update helper with new functions and correct statements
         System.out.println("""
                 Here are some keywords you can use throughout the game:
                 look      = Looking around at the current location

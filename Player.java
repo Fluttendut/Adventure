@@ -142,7 +142,7 @@ public class Player
     //todo make monster and player AC
     public void attack()
     {
-        int attack = attackRoll.nextInt(20)+1;
+        int attack = attackRoll.nextInt(20) + 1;
 
         if(attack > monsterAC)
         {
@@ -153,6 +153,10 @@ public class Player
             System.out.println("your attack missed the monster this time");
         }
 
+    }
+    public void defence()
+    {
+      //todo ask about this tomorrow int ac = PlayerClass.ac + chosenClass.getDexterity()-10/2;
     }
 
     public PlayerClass getChosenClass() {

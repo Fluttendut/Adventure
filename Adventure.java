@@ -6,7 +6,6 @@ public class Adventure
 
     private boolean game = true;
 
-    //todo possibly do a method() for descriptions of environment
     Room roomOne = new Room("You are in a beautiful forest! You see trees everywhere and hear the birds chipping in the crowns", 1);
     Room roomTwo = new Room("You are at a white lush beach with the clearest blue water! The sound of water is calming.", 2);
     Room roomThree = new Room("You are in a busy tavern! The ale is sTrOnK! Watch out for pick pockets!", 3);
@@ -16,7 +15,6 @@ public class Adventure
     Room roomSeven = new Room("You are at the lava pits of #*@?%! Don't step in the hot stuff! ", 7);
     Room roomEight = new Room("You are at the dragons lair! It is not here at the moment, but be careful as it might come back!", 8);
     Room roomNine = new Room("You are walking down a country road! The road is so long, so long....", 9);
-    //todo make getters and setters for connection for all the rooms
     Room roomTen = new Room("As you enter the cave, you hear a loud crash, the way back has been blocked, there is only one way forward. you have entered a long narrow corridor, where does it lead?",10);
     Room roomEleven = new Room("At the end of the long corridor you find yourself in complete darkness,if only you had a torch ",11);
     Room roomTwelve = new Room("as you enter the room, you see a suspension bridge! as you cross the bridge, it snaps under you and you fall into the darkness",12);
@@ -70,7 +68,7 @@ public class Adventure
         roomTwo.addItems(item4);
         Item item5 = new Item("Torch");
         roomThree.addItems(item5); //counters darkness if it is implemented
-//todo add loot to trolls lair and dungeon, preferably in the for of chests with loot in
+//todo add loot to trolls lair and dungeon, preferably in the form of chests with loot in
 
         Item item9 = new Item("Scroll of teleportation");
         roomTwentyseven.addItems(item9);
