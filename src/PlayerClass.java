@@ -1,4 +1,4 @@
-public abstract class PlayerClass {  //todo figure out if u want abstract
+public abstract class PlayerClass {
     private int dexterity;
     private int strength;
     private int intellect;
@@ -6,6 +6,7 @@ public abstract class PlayerClass {  //todo figure out if u want abstract
     private int charisma;
     private int constitution;
 
+    private int ac;
     private int hitPointsmodifier;
 
     public PlayerClass(){
@@ -69,6 +70,11 @@ public abstract class PlayerClass {  //todo figure out if u want abstract
         this.hitPointsmodifier = hitPointsmodifier;
     }
 
-    //todo write a tostring
+    public int getAc() { return ac; }
+
+    public void setAc(int ac) {this.ac = ac;
+    }
+
+    //todo write a tostring?
 
 }

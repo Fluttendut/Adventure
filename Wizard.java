@@ -14,7 +14,4 @@ public class Wizard extends PlayerClass{
         setHitPointsmodifier(randomizer.nextInt(4)+1+(getConstitution()-10)/2);
         setAc(10+getDexterity()/*+armor from item*/);
     }
-
-
-
 }
