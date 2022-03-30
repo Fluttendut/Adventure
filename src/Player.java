@@ -168,7 +168,7 @@ public class Player
     }
 
 public static void main(String[] args)
-{
+{//TODO remove TEST MAIN when testing is done
 
     Player player = new Player();
     player.setChosenClass(new Warrior());
