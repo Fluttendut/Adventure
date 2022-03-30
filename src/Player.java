@@ -6,14 +6,11 @@ public class Player
 {
     String nameOfPlayer;
     Scanner input = new Scanner(System.in);
+    monster monster = new monster();
     Room roomOne; //redundant
     private int hp;
     private Random hpRandomizer = new Random();
     private Random attackRoll = new Random();
-    int damage;
-    //todo move monsterAC to monster class
-    int monsterAC;
-
     private PlayerClass chosenClass;
 
     void nameOfPlayer()
@@ -27,12 +24,14 @@ public class Player
         System.out.println("You looked around");
         System.out.println();
     }
+
     public void lookAround(Room room)
     {
         System.out.println("You looked around");
         System.out.println(room.getRoomDescription());
         System.out.println();
     }
+
     //setter and getter for inventory done with ArrayList
     public void setItemInventory(ArrayList<Item> itemInventory)
     {
@@ -77,7 +76,7 @@ public class Player
         for (int i = 0; i < itemInventory.size(); i++)
         {
             //this will return the item at location i
-            if (itemInventory.get(i).name1.equalsIgnoreCase(targetItem))
+            if (itemInventory.get(i).getName().equalsIgnoreCase(targetItem))
             {
                 result = itemInventory.get(i);
                 itemInventory.remove(i);
@@ -104,18 +103,6 @@ public class Player
         return null;
     }
 
-    public void hitPoints()
-    {
-        //TODO - set hp modifiers
-        /*
-        Warrior - 10
-        Wizard - 4
-        Ranager - 8
-        Bard - 6
-         */
-        hp = hpRandomizer.nextInt(chosenClass.getHitPointsmodifier()) + 1 + ((chosenClass.getConstitution() - 10) / 2);
-    }
-
     public void eatFood(int hp)
     {
         if (itemInventory.contains("generic food") || itemInventory.contains("potion"))
@@ -139,14 +126,14 @@ public class Player
             System.out.println("you starve!!!");
         }
     }
-    //todo make monster and player AC
+
+
     public void attack()
     {
         int attack = attackRoll.nextInt(20) + 1;
-
-        if(attack > monsterAC)
+        if (attack > monster.getMonsterAC())
         {
-            damage = attackRoll.nextInt()+ (chosenClass.getStrength() -10)/2;
+           int damage = attackRoll.nextInt() + (chosenClass.getStrength() - 10) / 2;
         }
         else
         {
@@ -154,19 +141,31 @@ public class Player
         }
 
     }
-    public void defence()
+    public void monsterAttack()
     {
-        //todo ask about this tomorrow int ac = PlayerClass.ac + chosenClass.getDexterity()-10/2;
+        int attack = attackRoll.nextInt(20) + 1;
+        if (chosenClass.getAc() < attack )
+        {
+            int damage = attackRoll.nextInt() + (monster.getStrength() - 10) / 2;
+        }
+        else
+        {
+            System.out.println("the monsters attack missed you this time");
+        }
+
     }
 
-    public PlayerClass getChosenClass() {
+
+    public PlayerClass getChosenClass()
+    {
         return chosenClass;
     }
 
-    public void setChosenClass(PlayerClass chosenClass) {
+    public void setChosenClass(PlayerClass chosenClass)
+    {
         this.chosenClass = chosenClass;
-        //todo decide where to calculate hitpoints - rename method
-        //hitPoints();
     }
+
+
 }
 

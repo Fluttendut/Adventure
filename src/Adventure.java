@@ -1,8 +1,10 @@
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Adventure
 {
+    Random random = new Random();
 
     private boolean game = true;
 
@@ -56,15 +58,15 @@ public class Adventure
     {
         //here an item is created and placed in a room
         //roomOne items
-        Item item1 = new Item("Axe");
+        Item item1 = new Item("Axe",2,random.nextInt(6)+1 );
         roomOne.addItems(item1);
         //roomTwo items
-        Item item2 = new Item("Shield");
+        Item item2 = new Item("Shield", 2);
         roomTwo.addItems(item2);
-        Item item3 = new Item("Sword");
+        Item item3 = new Item("Sword",4,random.nextInt(8)+1);
         roomTwo.addItems(item3);
         //roomThree
-        Item item4 = new Item("Armor");
+        Item item4 = new Item("Armor", 4);
         roomTwo.addItems(item4);
         Item item5 = new Item("Torch");
         roomThree.addItems(item5); //counters darkness if it is implemented
@@ -106,6 +108,7 @@ public class Adventure
         //RoomThree
         roomThree.setRoomWest(roomTwo);
         roomThree.setRoomSouth(roomSix);
+        roomThree.setRoomNorth(roomTen);
         roomThree.X = 4;
         roomThree.Y = 8;
 
@@ -151,7 +154,6 @@ public class Adventure
         roomTen.X = 3;
         roomTen.Y = 8;
 
-        //todo RoomEleven find a way to make random generator
         roomEleven.setRoomNorth(roomThirteen);
         roomEleven.setRoomSouth(roomTen);
         roomEleven.setRoomNorth(roomFourteen);
@@ -383,10 +385,43 @@ public class Adventure
         }
     }
 
+    public boolean darkness()
+    {
+       int directionDarkness = random.nextInt(3)+1;
+       switch (directionDarkness)
+       {
+           case 1:
+               currentRoom = goingNorth(currentRoom);
+               game = false;
+               return true;
+           case 2:
+               currentRoom = goingEast(currentRoom);
+               game = false;
+               return true;
+           case 3:
+               currentRoom = goingWest(currentRoom);
+               game = false;
+               return true;
+           default:
+               game = false;    //todo fix text
+               System.out.println("NO! Wrong input! :(");
+               return true;
+       }
+
+    }
+
     //changed void to boolean so we can make the game end
     public boolean userInterface(Helper helper)
     {
         Scanner sc = new Scanner(System.in);
+
+        //change room dynamic
+        if(currentRoom == roomEleven)
+        {
+           if(!player.itemInventory.contains("torch")) return darkness();
+            System.out.println("you wondered around in the darkness and stumble upon an exit");
+        }
+
 
         if (player.itemInventory.contains("scroll of teleportation"))
         {

@@ -1,4 +1,5 @@
-public abstract class PlayerClass {
+public abstract class PlayerClass
+{
     private int dexterity;
     private int strength;
     private int intellect;
@@ -9,70 +10,90 @@ public abstract class PlayerClass {
     private int ac;
     private int hitPointsmodifier;
 
-    public PlayerClass(){
+    public PlayerClass()
+    {
         //set default stats
 
     }
 
-    public int getDexterity() {
+    public int getDexterity()
+    {
         return dexterity;
     }
 
-    public void setDexterity(int dexterity) {
+    public void setDexterity(int dexterity)
+    {
         this.dexterity = dexterity;
     }
 
-    public int getIntellect() {
+    public int getIntellect()
+    {
         return intellect;
     }
 
-    public void setIntellect(int intellect) {
+    public void setIntellect(int intellect)
+    {
         this.intellect = intellect;
     }
 
-    public int getWisdom() {
+    public int getWisdom()
+    {
         return wisdom;
     }
 
-    public void setWisdom(int wisdom) {
+    public void setWisdom(int wisdom)
+    {
         this.wisdom = wisdom;
     }
 
-    public int getCharisma() {
+    public int getCharisma()
+    {
         return charisma;
     }
 
-    public void setCharisma(int charisma) {
+    public void setCharisma(int charisma)
+    {
         this.charisma = charisma;
     }
 
-    public int getConstitution() {
+    public int getConstitution()
+    {
         return constitution;
     }
 
-    public void setConstitution(int constitution) {
+    public void setConstitution(int constitution)
+    {
         this.constitution = constitution;
     }
 
-    public int getStrength() {
+    public int getStrength()
+    {
         return strength;
     }
 
-    public void setStrength(int strength) {
+    public void setStrength(int strength)
+    {
         this.strength = strength;
     }
 
-    public int getHitPointsmodifier() {
+    public int getHitPointsmodifier()
+    {
         return hitPointsmodifier;
     }
 
-    public void setHitPointsmodifier(int hitPointsmodifier) {
+    public void setHitPointsmodifier(int hitPointsmodifier)
+    {
         this.hitPointsmodifier = hitPointsmodifier;
     }
 
-    public int getAc() { return ac; }
+    public int getAc()
+    {
+        return ac;
+    }
 
-    public void setAc(int ac) {this.ac = ac;
+    public void setAc(int ac)
+    {
+        this.ac = ac;
     }
 
     //todo write a tostring?
