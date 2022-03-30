@@ -39,8 +39,8 @@ public class Adventure
     Room roomTwentynine = new Room("",29);
     Room roomThirty = new Room("Entrance to the trolls lair",30);
     Room roomThirtyone = new Room("You have entered the trolls lair! the smell makes you nauseous",31);
-    Room roomThirtytwo = new Room("Exit from the Trolls lair, you stand High above the entrance and would have to climb down carefully",32);
-    Room roomThirtyThree = new Room("",33);
+    Room roomThirtytwo = new Room("You are facing the troll! Prepare yourself for the worst!",32);
+    Room roomThirtyThree = new Room("Exit from the Trolls lair, you stand High above the entrance and would have to climb down carefully",33);
 
     Room currentRoom = roomOne;
     Player player;
@@ -57,27 +57,47 @@ public class Adventure
     public Adventure(Player player)
     {
         //here an item is created and placed in a room
-        //roomOne items
+
         Item item1 = new Item("Axe",2,random.nextInt(6)+1 );
         roomOne.addItems(item1);
-        //roomTwo items
+
         Item item2 = new Item("Shield", 2);
-        roomTwo.addItems(item2);
+        roomEleven.addItems(item2);
+
         Item item3 = new Item("Sword",4,random.nextInt(8)+1);
-        roomTwo.addItems(item3);
-        //roomThree
+        roomEight.addItems(item3);
+
         Item item4 = new Item("Armor", 4);
-        roomTwo.addItems(item4);
+        roomFive.addItems(item4);
+
         Item item5 = new Item("Torch");
-        roomThree.addItems(item5); //counters darkness if it is implemented
+        roomTwo.addItems(item5); //TODO counters darkness if it is implemented
+
+        Item item6 = new Item("Lucky coin", 1);
+        roomTwentyone.addItems(item6);
+
+        Item item7 = new Item("Wand", 3, random.nextInt(5)+1);
+        roomTwenty.addItems(item7);
+
+        Item food = new Item("Loaf of bread");
+        roomSeven.addItems(food);
+
+        Item item8 = new Item("Broken arrow");
+        roomTen.addItems(item8);
+
 //todo add loot to trolls lair and dungeon, preferably in the form of chests with loot in
 
         Item item9 = new Item("Scroll of teleportation");
         roomTwentyseven.addItems(item9);
+        roomThirteen.addItems(item9);
 
         //roomEight items
         Item item10 = new Item("potion");
         roomTwo.addItems(item10); //refills hp if hp is implemented
+        roomTwentyfive.addItems(item10);
+        roomThirty.addItems(item10);
+        roomSixteen.addItems(item10);
+
 
         this.player = player;
         setMap();
