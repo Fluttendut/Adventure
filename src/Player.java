@@ -167,7 +167,7 @@ public class Player
         this.chosenClass = chosenClass;
     }
 
-public static void main(String[] args)
+/*public static void main(String[] args)
 {
 
     Player player = new Player();
@@ -175,7 +175,7 @@ public static void main(String[] args)
     Adventure adventure = new Adventure(player);
     Monster monster = new Monster();
     adventure.combat(monster);
-}
+}*/
 }
 
 

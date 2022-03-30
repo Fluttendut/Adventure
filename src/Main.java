@@ -8,7 +8,7 @@ public class Main
         controller.go();
     }
 
-    private void drawRoom(String map, Room reviousRoom, Room currentRoom){
+    private void drawRoom(String map, Room previousRoom, Room currentRoom){
 
     }
 }
