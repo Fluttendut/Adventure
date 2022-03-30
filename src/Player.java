@@ -6,7 +6,7 @@ public class Player
 {
     String nameOfPlayer;
     Scanner input = new Scanner(System.in);
-    monster monster = new monster();
+    Monster monster = new Monster();
     Room roomOne; //redundant
     private int hp;
     private Random hpRandomizer = new Random();
@@ -122,7 +122,7 @@ public class Player
         }
         else
         {
-            hp = hp - 10;
+            hp = hp - 1;
             System.out.println("you starve!!!");
         }
     }
@@ -133,7 +133,8 @@ public class Player
         int attack = attackRoll.nextInt(20) + 1;
         if (attack > monster.getMonsterAC())
         {
-           int damage = attackRoll.nextInt() + (chosenClass.getStrength() - 10) / 2;
+           int damage = attackRoll.nextInt(20) + (chosenClass.getStrength() - 10) / 2;
+            System.out.println(damage);
         }
         else
         {
@@ -146,7 +147,8 @@ public class Player
         int attack = attackRoll.nextInt(20) + 1;
         if (chosenClass.getAc() < attack )
         {
-            int damage = attackRoll.nextInt() + (monster.getStrength() - 10) / 2;
+            int monsterDamage = attackRoll.nextInt(20) + (monster.getStrength() - 10) / 2;
+            System.out.println(monsterDamage);
         }
         else
         {
@@ -154,7 +156,6 @@ public class Player
         }
 
     }
-
 
     public PlayerClass getChosenClass()
     {
@@ -166,6 +167,16 @@ public class Player
         this.chosenClass = chosenClass;
     }
 
+public static void main(String[] args)
+{
 
+    Player player = new Player();
+    player.setChosenClass(new Warrior());
+    Adventure adventure = new Adventure(player);
+    Monster monster = new Monster();
+    adventure.combat(monster);
 }
+}
+
+
 

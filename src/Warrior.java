@@ -11,7 +11,8 @@ public class Warrior extends PlayerClass{
         setIntellect(randomizer.nextInt(10)+1+10);
         setStrength(randomizer.nextInt(10)+1+10);
         setWisdom(randomizer.nextInt(10)+1+10);
-        setHitPointsmodifier(randomizer.nextInt(10)+1+(getConstitution()-10)/2);
+        setHitPointsmodifier(randomizer.nextInt(10)+1+((getConstitution()-10)/2));
+        System.out.println("warrior " +this.getHitPointsmodifier());
 
     }
 }

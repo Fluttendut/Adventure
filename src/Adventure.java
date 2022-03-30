@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -408,6 +407,25 @@ public class Adventure
                return true;
        }
 
+    }
+    public void combat(Monster monster)
+    {
+        boolean combatInProgress = true;
+        Scanner input = new Scanner(System.in);
+        //player.getChosenClass().getHitPointsmodifier() > 0 && monster.getMonsterHitpoints() > 0
+        while(combatInProgress)
+        {
+            System.out.println("inside whileloop");
+            switch (input.nextInt())
+            {
+                case 1:
+                    player.eatFood(player.getChosenClass().getHitPointsmodifier());
+                case 2:
+                    player.attack();
+            }
+            player.monsterAttack();
+            combatInProgress = player.getChosenClass().getHitPointsmodifier() > 0 && monster.getMonsterHitpoints() > 0;
+        }
     }
 
     //changed void to boolean so we can make the game end

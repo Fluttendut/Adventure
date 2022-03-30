@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class monster
+public class Monster
 {
     private int dexterity;
     private int strength;
@@ -11,10 +11,11 @@ public class monster
 
     private int monsterAC;
     private int hitPointsmodifier;
+    private int monsterHitpoints;
 
 
 
-    public monster()
+    public Monster()
     {
         super();
         Random randomizer = new Random();
@@ -25,9 +26,13 @@ public class monster
         setIntellect(randomizer.nextInt(10) + 1 + 10);
         setStrength(randomizer.nextInt(10) + 1 + 10);
         setWisdom(randomizer.nextInt(10) + 1 + 10);
-        setHitPointsmodifier(randomizer.nextInt(4) + 1 + (getConstitution() - 10) / 2);
+        //setHitPointsmodifier(randomizer.nextInt(4) + 1 + ((getConstitution() - 10) / 2));
+        setHitPointsmodifier(10);
         setAc(10 + getDexterity());
-    }
+        monsterHitpoints = hitPointsmodifier;
+        System.out.println("monster "+ this.getMonsterHitpoints());
+
+        }
     {
         //set default stats
 
@@ -111,6 +116,15 @@ public class monster
     public void setAc(int ac)
     {
         this.monsterAC = ac;
+    }
+    public int getMonsterHitpoints()
+    {
+        return monsterHitpoints;
+    }
+
+    public void setMonsterHitpoints(int monsterHitpoints)
+    {
+        this.monsterHitpoints = monsterHitpoints;
     }
 }
 

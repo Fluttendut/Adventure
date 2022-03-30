@@ -44,7 +44,7 @@ public class Room
         Item result = null;
         for (int i = 0; i < items.size(); i++)
         {
-            if(items.get(i).name1.equalsIgnoreCase(targetItem))
+            if(items.get(i).getName().equalsIgnoreCase(targetItem))
             {
                 result = items.get(i);
                 items.remove(i);
