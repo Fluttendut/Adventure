@@ -27,19 +27,19 @@ public class Adventure
     Room roomEighteen = new Room("You climb out of the underdark and feel the warmth of the sun on your skin! you have missed this feeling!",18);
     Room roomNineteen = new Room("This looks like the entrance to a Dungeon! maybe you could find some loot",19);
     Room roomTwenty = new Room("You have entered the dungeon, you find a split in the path you can go north or west.",20);
-    Room roomTwentyone = new Room("",21);
-    Room roomTwentytwo = new Room("",22);
-    Room roomTwentythree = new Room("",23);
-    Room roomTwentyfour = new Room("",24);
+    Room roomTwentyone = new Room("The room you have entered is all slimy! Your skin feels sticky and cold.",21);
+    Room roomTwentytwo = new Room("You have entered a loooong hallway, and all you can see is a light at the end. Better go towards it!",22);
+    Room roomTwentythree = new Room("You have entered a room with blood splatter all over! Let's hope it's not your blood next.",23);
+    Room roomTwentyfour = new Room("You have entered a super tiny room with a huge door! On the other side you hear a roar!",24);
     Room roomTwentyfive = new Room("You have entered the boss room! prepare to fight for your life!",25);
     Room roomTwentysix = new Room("You have entered the dungeons' treasury! look at all the shiny loot just lying around",26);
-    Room roomTwentyseven = new Room("",27);
-    Room roomTwentyeight = new Room("",28);
-    Room roomTwentynine = new Room("",29);
+    Room roomTwentyseven = new Room("You have escaped! There are remains of souls much less fortunate than you ",27);
+    Room roomTwentyeight = new Room("The room is filled with candles and the air is thick with heavy stench.. what is that??",28);
+    Room roomTwentynine = new Room("You enter a room so slim that you have to walk sideways. You will have to push your way through the room",29);
     Room roomThirty = new Room("Entrance to the trolls lair",30);
     Room roomThirtyone = new Room("You have entered the trolls lair! the smell makes you nauseous",31);
-    Room roomThirtytwo = new Room("Exit from the Trolls lair, you stand High above the entrance and would have to climb down carefully",32);
-    Room roomThirtyThree = new Room("",33);
+    Room roomThirtytwo = new Room("You are facing the troll! Prepare yourself for the worst!",32);
+    Room roomThirtyThree = new Room("Exit from the Trolls lair, you stand High above the entrance and would have to climb down carefully",33);
 
     Room currentRoom = roomOne;
     Player player;
@@ -56,27 +56,47 @@ public class Adventure
     public Adventure(Player player)
     {
         //here an item is created and placed in a room
-        //roomOne items
+
         Item item1 = new Item("Axe",2,random.nextInt(6)+1 );
         roomOne.addItems(item1);
-        //roomTwo items
+
         Item item2 = new Item("Shield", 2);
-        roomTwo.addItems(item2);
+        roomEleven.addItems(item2);
+
         Item item3 = new Item("Sword",4,random.nextInt(8)+1);
-        roomTwo.addItems(item3);
-        //roomThree
+        roomEight.addItems(item3);
+
         Item item4 = new Item("Armor", 4);
-        roomTwo.addItems(item4);
+        roomFive.addItems(item4);
+
         Item item5 = new Item("Torch");
-        roomThree.addItems(item5); //counters darkness if it is implemented
+        roomTwo.addItems(item5); //TODO counters darkness if it is implemented
+
+        Item item6 = new Item("Lucky coin", 1);
+        roomTwentyone.addItems(item6);
+
+        Item item7 = new Item("Wand", 3, random.nextInt(5)+1);
+        roomTwenty.addItems(item7);
+
+        Item food = new Item("Loaf of bread");
+        roomSeven.addItems(food);
+
+        Item item8 = new Item("Broken arrow");
+        roomTen.addItems(item8);
+
 //todo add loot to trolls lair and dungeon, preferably in the form of chests with loot in
 
         Item item9 = new Item("Scroll of teleportation");
         roomTwentyseven.addItems(item9);
+        roomThirteen.addItems(item9);
 
         //roomEight items
         Item item10 = new Item("potion");
         roomTwo.addItems(item10); //refills hp if hp is implemented
+        roomTwentyfive.addItems(item10);
+        roomThirty.addItems(item10);
+        roomSixteen.addItems(item10);
+
 
         this.player = player;
         setMap();
