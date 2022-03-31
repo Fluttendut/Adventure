@@ -1,21 +1,21 @@
 public class Item
 {
-    private int attack;
+    private int attackRoll;
     private int damage;
     private String name;
-    private int ac;
+    private int Ac;
 
-    public Item(String name, int attack, int damage)
+    public Item(String name, int attackRoll, int damage)
     {
         this.name = name;
-        this.attack = attack;
+        this.attackRoll = attackRoll;
         this.damage = damage;
     }
 
     public Item(String name, int ac)
     {
         this.name = name;
-        this.ac = ac;
+        this.Ac = ac;
 
     }
 
@@ -25,9 +25,9 @@ public class Item
 
     }
 
-    public int getAttack()
+    public int getAttackRoll()
     {
-        return attack;
+        return attackRoll;
     }
 
     public int getDamage()
@@ -42,7 +42,7 @@ public class Item
 
     public int getAc()
     {
-        return ac;
+        return Ac;
     }
 
     @Override

@@ -478,6 +478,8 @@ public class Adventure
             System.out.println("Press 10 to end the game");
             System.out.println("press 11 to use teleportation scroll");
             System.out.println("press 12 to see map");
+            System.out.println("press 13 to equip gear");
+            System.out.println("press 14 to eat food");
         }
         else
         {
@@ -494,6 +496,8 @@ public class Adventure
             System.out.println("Press 9 for help");
             System.out.println("Press 10 to end the game");
             System.out.println("press 12 to see map");
+            System.out.println("press 13 to equip gear");
+            System.out.println("press 14 to eat food");
         }
 
         //todo implement music element, lack of better idea of where to place it.
@@ -575,6 +579,12 @@ public class Adventure
                 return true;
             case 12:
                 drawMap();
+                return true;
+            case 13:
+                player.equip();
+                return true;
+            case 14:
+                player.eatFood();
                 return true;
             default:
                 game = false;

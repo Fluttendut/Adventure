@@ -6,11 +6,12 @@ public abstract class PlayerClass
     private int wisdom;
     private int charisma;
     private int constitution;
-
-    private int ac;
+    private int Ac;
     private int hitPointsmodifier;
-    private int damage;
+    private int damage = 4;
     private int attackRoll;
+
+
 
 
 
@@ -92,12 +93,12 @@ public abstract class PlayerClass
 
     public int getAc()
     {
-        return ac;
+        return Ac;
     }
 
     public void setAc(int ac)
     {
-        this.ac = ac;
+        this.Ac = ac;
     }
     public int getDamage()
     {
@@ -119,6 +120,15 @@ public abstract class PlayerClass
         this.attackRoll = attackRoll;
     }
 
-    //todo write a tostring?
+    /*
+System.out.println("These are your stats brave adventure!");
+        System.out.println(this.getHitPointsmodifier());
+        System.out.println(this.getCharisma());
+        System.out.println(this.getConstitution());
+        System.out.println(this.getDexterity());
+        System.out.println(this.getIntellect());
+        System.out.println(this.getStrength());
+        System.out.println(this.getWisdom());
+        System.out.println(this.getAc());*/
 
 }

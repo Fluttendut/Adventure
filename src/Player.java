@@ -8,10 +8,13 @@ public class Player
     Scanner input = new Scanner(System.in);
     Monster monster = new Monster();
     Room roomOne; //redundant
+    int Ac;
     private int hp;
     private Random hpRandomizer = new Random();
     private Random attackRoll = new Random();
     private PlayerClass chosenClass;
+    private int attackRollWithItem;
+    private int damage;
 
     void nameOfPlayer()
     {
@@ -32,7 +35,7 @@ public class Player
         System.out.println();
     }
 
-   /* public void equip(String equipment)
+    public void equip(String equipment)
     {
         for (Item item : itemInventory)
         {
@@ -41,17 +44,17 @@ public class Player
                 System.out.println("you equipped the item");
                 ArrayList<Item> equippedItems = new ArrayList<Item>();
 
-                if(item.Ac > 0)
+                if(item.getAc() > 0)
                 {
-                    Ac = chosenClass.getAc() + item.getAc();
+                    this.Ac = chosenClass.getAc() + item.getAc();
                 }
-                else if(item.getattackRoll() > 0)
+                else if(item.getAttackRoll() > 0)
                 {
-                    attackRoll = chosenClass.getattack + item.getAttack();
+                    attackRollWithItem = attackRoll.nextInt(20)+1 + item.getAttackRoll();
                 }
-                else if(item.damage > 0)
+                else if(item.getDamage() > 0)
                 {
-                    damage = chosenClass.getdamage + item.getDamage();
+                    damage = chosenClass.getDamage() + item.getDamage();
                 }
             }
             else
@@ -59,7 +62,7 @@ public class Player
                 System.out.println("you dont have that item!");
             }
         }
-    }*/
+    }
 
     //setter and getter for inventory done with ArrayList
     public void setItemInventory(ArrayList<Item> itemInventory)
@@ -161,10 +164,10 @@ public class Player
 
     public void attack()
     {
-        int attack = attackRoll.nextInt(20) + 1;
-        if (attack > monster.getMonsterAC())
+        int attackRoll = this.attackRoll.nextInt(20) + 1;
+        if (attackRoll > monster.getMonsterAC())
         {
-            int damage = attackRoll.nextInt(20) + (chosenClass.getStrength() - 10) / 2;
+            int damage = this.attackRoll.nextInt(20) + (chosenClass.getStrength() - 10) / 2;
             System.out.println(damage);
         }
         else
