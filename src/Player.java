@@ -135,7 +135,7 @@ public class Player
         return null;
     }
 
-    public void eatFood(int hp)
+    public void eatFood()
     {
         if (itemInventory.contains("generic food") || itemInventory.contains("potion"))
         {
@@ -181,7 +181,7 @@ public class Player
         int attack = attackRoll.nextInt(20) + 1;
         if (chosenClass.getAc() < attack )
         {
-            int monsterDamage = attackRoll.nextInt(20) + (monster.getStrength() - 10) / 2;
+            int monsterDamage = attackRoll.nextInt(8) + (monster.getStrength() - 10) / 2;
             System.out.println(monsterDamage);
         }
         else

@@ -1,3 +1,4 @@
+import java.awt.datatransfer.StringSelection;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -440,7 +441,7 @@ public class Adventure
             switch (input.nextInt())
             {
                 case 1:
-                    player.eatFood(player.getChosenClass().getHitPointsmodifier());
+                    player.eatFood();
                 case 2:
                     player.attack();
             }
@@ -581,7 +582,9 @@ public class Adventure
                 drawMap();
                 return true;
             case 13:
-                player.equip();
+                System.out.println("Which item would you like to equip?"); //todo be aware of scannerbug
+                String selectedItem = sc.nextLine();
+                player.equip(selectedItem);
                 return true;
             case 14:
                 player.eatFood();
