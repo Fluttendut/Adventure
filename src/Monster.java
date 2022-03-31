@@ -26,13 +26,13 @@ public class Monster
         setIntellect(randomizer.nextInt(10) + 1 + 10);
         setStrength(randomizer.nextInt(10) + 1 + 10);
         setWisdom(randomizer.nextInt(10) + 1 + 10);
-        setHitPointsmodifier(randomizer.nextInt(4) + 1 + ((getConstitution() - 10) / 2));
-        //setHitPointsmodifier(10);
+        //setHitPointsmodifier(randomizer.nextInt(4) + 1 + ((getConstitution() - 10) / 2));
+        setHitPointsmodifier(10);
         setAc(10 + getDexterity());
         monsterHitpoints = hitPointsmodifier;
         System.out.println("monster "+ this.getMonsterHitpoints());
 
-        }
+    }
     {
         //set default stats
 
@@ -127,4 +127,3 @@ public class Monster
         this.monsterHitpoints = monsterHitpoints;
     }
 }
-

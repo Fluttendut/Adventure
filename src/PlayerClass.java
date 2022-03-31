@@ -9,6 +9,10 @@ public abstract class PlayerClass
 
     private int ac;
     private int hitPointsmodifier;
+    private int damage;
+    private int attackRoll;
+
+
 
     public PlayerClass()
     {
@@ -94,6 +98,25 @@ public abstract class PlayerClass
     public void setAc(int ac)
     {
         this.ac = ac;
+    }
+    public int getDamage()
+    {
+        return damage;
+    }
+
+    public void setDamage(int damage)
+    {
+        this.damage = damage;
+    }
+
+    public int getAttackRoll()
+    {
+        return attackRoll;
+    }
+
+    public void setAttackRoll(int attackRoll)
+    {
+        this.attackRoll = attackRoll;
     }
 
     //todo write a tostring?

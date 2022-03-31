@@ -164,11 +164,11 @@ public class Adventure
         //RoomNine
         roomNine.setRoomNorth(roomSix);
         roomNine.setRoomWest(roomEight);
-        roomNine.setRoomEast(roomThirtytwo);
+        roomNine.setRoomEast(roomThirtyone);
         roomNine.X = 6;
         roomNine.Y = 8;
 
-        //RoomTen
+        //RoomTen //todo ask tutor why crash on south
         roomTen.setRoomNorth(roomEleven);
         roomTen.X = 3;
         roomTen.Y = 8;
@@ -189,7 +189,7 @@ public class Adventure
         roomThirteen.setRoomSouth(roomEleven);
         roomThirteen.setRoomEast(roomSixteen);
         roomThirteen.setRoomWest(roomFifteen);
-        roomThirteen.setRoomEast(roomSeventeen);
+        roomThirteen.setRoomNorth(roomSeventeen);
         roomThirteen.X = 1;
         roomThirteen.Y = 8;
 
@@ -199,7 +199,7 @@ public class Adventure
         roomFourteen.Y = 7;
 
         //RoomFifteen
-        roomFifteen.setRoomWest(roomThirteen);
+        roomFifteen.setRoomEast(roomThirteen);
         roomFifteen.X = 6;
         roomFifteen.Y = 2;
 
@@ -221,14 +221,15 @@ public class Adventure
         roomEighteen.Y = 10;
 
         //RoomNineteen Dungeon Entrance
-        roomNineteen.setRoomEast(roomFour);
-        roomNineteen.setRoomWest(roomTwo);
+        roomNineteen.setRoomEast(roomSeven);
+        roomNineteen.setRoomWest(roomTwenty);
         roomNineteen.X = 6;
         roomNineteen.Y = 5;
 
         //RoomTwenty
         roomTwenty.setRoomNorth(roomTwentyone);
-        roomTwenty.setRoomWest(roomThirtyone);
+        roomTwenty.setRoomWest(roomThirty);
+        roomTwenty.setRoomEast(roomNineteen);
         roomTwenty.X = 6;
         roomTwenty.Y = 4;
 
@@ -293,7 +294,7 @@ public class Adventure
         roomThirty.Y = 3;
 
         //thirtyone
-        roomThirtyone.setRoomEast(roomThirtytwo);
+        roomThirtyone.setRoomSouth(roomThirtytwo);
         roomThirtyone.X = 6;
         roomThirtyone.Y = 9;
 
@@ -406,26 +407,26 @@ public class Adventure
 
     public boolean darkness()
     {
-       int directionDarkness = random.nextInt(3)+1;
-       switch (directionDarkness)
-       {
-           case 1:
-               currentRoom = goingNorth(currentRoom);
-               game = false;
-               return true;
-           case 2:
-               currentRoom = goingEast(currentRoom);
-               game = false;
-               return true;
-           case 3:
-               currentRoom = goingWest(currentRoom);
-               game = false;
-               return true;
-           default:
-               game = false;    //todo fix text
-               System.out.println("NO! Wrong input! :(");
-               return true;
-       }
+        int directionDarkness = random.nextInt(3)+1;
+        switch (directionDarkness)
+        {
+            case 1:
+                currentRoom = goingNorth(currentRoom);
+                game = false;
+                return true;
+            case 2:
+                currentRoom = goingEast(currentRoom);
+                game = false;
+                return true;
+            case 3:
+                currentRoom = goingWest(currentRoom);
+                game = false;
+                return true;
+            default:
+                game = false;    //todo fix text
+                System.out.println("NO! Wrong input! :(");
+                return true;
+        }
 
     }
     public void combat(Monster monster)
@@ -456,7 +457,7 @@ public class Adventure
         //change room dynamic
         if(currentRoom == roomEleven)
         {
-           if(!player.itemInventory.contains("torch")) return darkness();
+            if(!player.itemInventory.contains("torch")) return darkness();
             System.out.println("you wondered around in the darkness and stumble upon an exit");
         }
 

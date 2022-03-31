@@ -32,6 +32,35 @@ public class Player
         System.out.println();
     }
 
+   /* public void equip(String equipment)
+    {
+        for (Item item : itemInventory)
+        {
+            if (item.getName().equalsIgnoreCase(equipment))
+            {
+                System.out.println("you equipped the item");
+                ArrayList<Item> equippedItems = new ArrayList<Item>();
+
+                if(item.Ac > 0)
+                {
+                    Ac = chosenClass.getAc() + item.getAc();
+                }
+                else if(item.getattackRoll() > 0)
+                {
+                    attackRoll = chosenClass.getattack + item.getAttack();
+                }
+                else if(item.damage > 0)
+                {
+                    damage = chosenClass.getdamage + item.getDamage();
+                }
+            }
+            else
+            {
+                System.out.println("you dont have that item!");
+            }
+        }
+    }*/
+
     //setter and getter for inventory done with ArrayList
     public void setItemInventory(ArrayList<Item> itemInventory)
     {
@@ -124,6 +153,8 @@ public class Player
         {
             hp = hp - 1;
             System.out.println("you starve!!!");
+            System.out.println(hp);
+
         }
     }
 
@@ -133,7 +164,7 @@ public class Player
         int attack = attackRoll.nextInt(20) + 1;
         if (attack > monster.getMonsterAC())
         {
-           int damage = attackRoll.nextInt(20) + (chosenClass.getStrength() - 10) / 2;
+            int damage = attackRoll.nextInt(20) + (chosenClass.getStrength() - 10) / 2;
             System.out.println(damage);
         }
         else
@@ -167,16 +198,15 @@ public class Player
         this.chosenClass = chosenClass;
     }
 
-public static void main(String[] args)
-{//TODO remove TEST MAIN when testing is done
+/*public static void main(String[] args)
+{
 
     Player player = new Player();
     player.setChosenClass(new Warrior());
     Adventure adventure = new Adventure(player);
     Monster monster = new Monster();
     adventure.combat(monster);
+}*/
 }
-}
-
 
 
