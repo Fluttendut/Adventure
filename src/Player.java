@@ -178,12 +178,15 @@ public class Player
 
     public void attack(Monster monster)
     {
-        int attackRoll = this.attackRoll.nextInt(20) + 1;
+        int attackRoll = this.attackRoll.nextInt(20) + 11;
+        System.out.println("your attack was "+ attackRoll);
+        //System.out.println("this is the monsters ac "+monster.getMonsterAC());
         if (attackRoll > monster.getMonsterAC())
         {
-            int damage = this.attackRoll.nextInt(20) + (chosenClass.getStrength() - 10) / 2;
-            System.out.println(damage);
+            int damage = this.attackRoll.nextInt(8)+1 + (chosenClass.getStrength() - 10) / 2;
+            System.out.println("you did "+damage+" damage to the monster");
             monster.setMonsterHitpoints(monster.getMonsterHitpoints()-damage);
+            //System.out.println(" monsters remaining hp is "+monster.getMonsterHitpoints());
         }
         else
         {
@@ -208,7 +211,7 @@ public class Player
     {
         Random randomizer = new Random();
         int classHitPointsmodifier = chosenClass.getHitPointsmodifier();
-        hp = randomizer.nextInt(classHitPointsmodifier) + 1 + (chosenClass.getConstitution() - 10) / 2;
+        hp = randomizer.nextInt(classHitPointsmodifier) + 1+ 50 + (chosenClass.getConstitution() - 10) / 2;
     }
 
     //getters and setters

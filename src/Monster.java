@@ -25,19 +25,22 @@ public class Monster
         setStrength(randomizer.nextInt(10) + 1 + 10);
         setWisdom(randomizer.nextInt(10) + 1 + 10);
         setHitPointsmodifier(randomizer.nextInt(10) + 1 + ((getConstitution() - 10) / 2));
-
-        setAc(10 + getDexterity());
+        setmonsterAc(0 + getDexterity());
         monsterHitpoints = hitPointsmodifier;
     }
 
     public void attack(Player player)
     { Random attackRandomizer = new Random();
-        int attackRoll = attackRandomizer.nextInt(20) + 1;
+        int attackRoll = attackRandomizer.nextInt(15) + 1;
+        //System.out.println("this is the monsters attackRoll " + attackRoll);
+        //System.out.println("player AC " + player.getChosenClass().getAc());
         if (attackRoll > player.getChosenClass().getAc())
         {
-            int damage = attackRandomizer.nextInt(20) + (strength - 10) / 2;
-            System.out.println(damage);
+            int damage = attackRandomizer.nextInt(4)+1 + (strength - 10) / 2;
             player.setHp(player.getHp()-damage);
+            System.out.println("The monster hit you and did " +damage);
+            System.out.println("you lost "+ damage + " of your HP" );
+            System.out.println("your remaining HP is " + player.getHp());
         }
         else
         {
@@ -122,7 +125,7 @@ public class Monster
         return monsterAC;
     }
 
-    public void setAc(int ac)
+    public void setmonsterAc(int ac)
     {
         this.monsterAC = ac;
     }

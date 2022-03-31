@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Mainmenu
 {
+    //getPlayMusic()
     Scanner input = new Scanner(System.in);
     Helper helper = new Helper();
     BackGroundMusic playMusic = new BackGroundMusic();
@@ -11,7 +12,11 @@ public class Mainmenu
         playMusic.playMusic();
         System.out.println("Welcome to the AMAZING GAME OF ADVENTURE TIME!");
         System.out.println("please choose what you would like to do");
-        System.out.println("1) Embark on your epic adventure \n 2) End your adventure \n 3) help menu");
+        System.out.println(""" 
+                1) Embark on your epic adventure 
+                2) End your adventure 
+                3) help menu");
+                """);
         //String introInput = input.nextLine(); this was commented out as it makes no sense to use a sting to compare an int. it has been replaced with an int.
         int introInput = input.nextInt();
 

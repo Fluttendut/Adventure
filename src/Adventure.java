@@ -132,6 +132,9 @@ public class Adventure
         roomTwo.X = 4;
         roomTwo.Y = 7;
         roomTwo.addMonster(new Orc());
+        roomTwo.addMonster(new Orc());
+        roomTwo.addMonster(new Orc());
+        roomTwo.addMonster(new Orc());
 
         //RoomThree
         roomThree.setRoomWest(roomTwo);
@@ -460,7 +463,11 @@ public class Adventure
         Scanner input = new Scanner(System.in);
         while (combatInProgress)
         {
-            System.out.println("what do you want to do?");
+            System.out.println("""
+                    what would you like to do?
+                    1) eat food/drink potion to regain hp
+                    2) attack the monster
+                    """);
             switch (input.nextInt())
             {
                 case 1:
