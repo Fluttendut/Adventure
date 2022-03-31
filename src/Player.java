@@ -49,15 +49,15 @@ public class Player
 
                 if (item.getAc() > 0)
                 {
-                     Ac = chosenClass.getAc() + item.getAc();
+                    Ac = chosenClass.getAc() + item.getAc();
                 }
                 else if (item.getAttackRoll() > 0)
                 {
-                     attackRollWithItem = attackRoll.nextInt(20) + 1 + item.getAttackRoll();
+                    attackRollWithItem = attackRoll.nextInt(20) + 1 + item.getAttackRoll();
                 }
                 else if (item.getDamage() > 0)
                 {
-                     damage = chosenClass.getDamage() + item.getDamage();
+                    damage = chosenClass.getDamage() + item.getDamage();
                 }
             }
             else
@@ -150,16 +150,15 @@ public class Player
     }
 
 
-
     public void eatFood()
     {
-        if (itemInventory.contains("generic food") || itemInventory.contains("potion"))
+        if (itemInventory.contains("Loaf of bread") || itemInventory.contains("potion"))
         {
             hp = hp + chosenClass.getHitPointsmodifier();
-            System.out.println("your hp is hp is" + hp +" hp");
+            System.out.println("your hp is hp is" + hp + " hp");
             System.out.println("fight on brave adventure!");
 
-            if (itemInventory.contains("generic food"))
+            if (itemInventory.contains("Loaf of bread"))
             {
                 itemInventory.remove("food");
             }
@@ -172,17 +171,16 @@ public class Player
         {
             hp = hp - 1;
             System.out.println("you starve!!!");
-            System.out.println("your hp is" + hp +"hp");
-            if (hp < 1)
-            {
-
-            }
+            System.out.println("your hp is " + hp + " hp");
 
         }
     }
+
     //combat
-    public void combatSystem() {
-        while (chosenClass.getHitPointsmodifier() > 0 && monster.getMonsterHitpoints() > 0) {
+    public void combatSystem()
+    {
+        while (chosenClass.getHitPointsmodifier() > 0 && monster.getMonsterHitpoints() > 0)
+        {
             attack();
             monsterAttack();
         }
@@ -227,6 +225,7 @@ public class Player
         this.chosenClass = chosenClass;
         calculateHp();
     }
+
     public void calculateHp()
     {
         Random randomizer = new Random();
@@ -234,7 +233,7 @@ public class Player
         hp = randomizer.nextInt(classHitPointsmodifier) + 1 + (chosenClass.getConstitution() - 10) / 2;
     }
 
-//getters and setters
+    //getters and setters
     public int getHp()
     {
         return hp;

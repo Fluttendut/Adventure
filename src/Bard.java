@@ -10,7 +10,7 @@ public class Bard extends PlayerClass{
         setDexterity(randomizer.nextInt(10)+1+10);
         setIntellect(randomizer.nextInt(10)+1+10);
         setStrength(randomizer.nextInt(10)+1+10);
-        setWisdom(randomizer.nextInt(10)+1+10);
+        setHitPointsmodifier(6);
         setHitPointsmodifier(randomizer.nextInt(6)+1+(getConstitution()-10)/2);
 
 
