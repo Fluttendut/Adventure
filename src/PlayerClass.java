@@ -10,11 +10,7 @@ public abstract class PlayerClass
     private int hitPointsmodifier;
     private int damage = 4;
     private int attackRoll;
-
-
-
-
-
+    Player player = new Player();
     public PlayerClass()
     {
         //set default stats

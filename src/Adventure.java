@@ -11,10 +11,10 @@ public class Adventure
     Room roomOne = new Room("You are in a beautiful forest! You see trees everywhere and hear the birds chipping in the crowns", 1);
     Room roomTwo = new Room("You are at a white lush beach with the clearest blue water! The sound of water is calming.", 2);
     Room roomThree = new Room("You are in a busy tavern! The ale is sTrOnK! Watch out for pick pockets!", 3);
-    Room roomFour = new Room("You are in the mountains! The air so refreshing. Take care and mind the mountain goats!", 4);
-    Room roomFive = new Room("You are in a dark dungeon! the air is moist and heavy. Try not to get lost!", 5);
+    Room roomFour = new Room("You are in the mountains! The air is so refreshing. Take care and mind the mountain goats!", 4);
+    Room roomFive = new Room("You are in a the Minotaur's lair! the air is moist and heavy. Try not to get caught!", 5);
     Room roomSix = new Room("You are at the castle! The halls are decorated with beautiful art and the food is amazing!", 6);
-    Room roomSeven = new Room("You are at the lava pits of #*@?%! Don't step in the hot stuff! ", 7);
+    Room roomSeven = new Room("You are at the lava pits of #*@?%! Don't fall in the hot stuff! ", 7);
     Room roomEight = new Room("You are at the dragons lair! It is not here at the moment, but be careful as it might come back!", 8);
     Room roomNine = new Room("You are walking down a country road! The road is so long, so long....", 9);
     Room roomTen = new Room("As you enter the cave, you hear a loud crash, the way back has been blocked, there is only one way forward. you have entered a long narrow corridor, where does it lead?",10);
@@ -23,8 +23,8 @@ public class Adventure
     Room roomThirteen = new Room("You have entered a strange looking cave with what appears to be a small shop",13);
     Room roomFourteen = new Room("as you enter the room a log swings from the ceiling and hits you in the chest",14);
     Room roomFifteen = new Room("You have entered a cave with shining mushrooms! this is very bright considering its a dark cave!!!",15);
-    Room roomSixteen = new Room("You wake up at the bottom of a bit, looks like there is a tunnel with light at the end of it! as you near the end of the tunnel, you see a sunflower beaming with light! how very strange",16);
-    Room roomSeventeen = new Room("you exit the shop though the backdoor, as you reach the end of the path you find a view of beautiful of a lake",17);
+    Room roomSixteen = new Room("You wake up at the bottom of a pit, looks like there is a tunnel with light at the end of it! as you near the end of the tunnel, you see a sunflower beaming with light! how very strange",16);
+    Room roomSeventeen = new Room("you exit the shop though the backdoor, as you reach the end of the path you find the view of beautiful a lake",17);
     Room roomEighteen = new Room("You climb out of the underdark and feel the warmth of the sun on your skin! you have missed this feeling!",18);
     Room roomNineteen = new Room("This looks like the entrance to a Dungeon! maybe you could find some loot",19);
     Room roomTwenty = new Room("You have entered the dungeon, you find a split in the path you can go north or west.",20);
@@ -403,6 +403,11 @@ public class Adventure
         boolean activeGame = true;
         while (activeGame == true){
             activeGame = userInterface(helper);
+            if(player.getHp() >= 0)
+            {
+                activeGame = false;
+                System.out.println("you've died");
+            }
         }
     }
 
@@ -583,6 +588,7 @@ public class Adventure
                 return true;
             case 13:
                 System.out.println("Which item would you like to equip?"); //todo be aware of scannerbug
+                sc.nextLine();
                 String selectedItem = sc.nextLine();
                 player.equip(selectedItem);
                 return true;

@@ -8,6 +8,7 @@ public class Player
     Scanner input = new Scanner(System.in);
     Monster monster = new Monster();
     Room roomOne; //redundant
+
     int Ac;
     private int hp;
     private Random hpRandomizer = new Random();
@@ -15,6 +16,7 @@ public class Player
     private PlayerClass chosenClass;
     private int attackRollWithItem;
     private int damage;
+    private String equipment;
 
     void nameOfPlayer()
     {
@@ -43,23 +45,25 @@ public class Player
             {
                 System.out.println("you equipped the item");
                 ArrayList<Item> equippedItems = new ArrayList<Item>();
+                equippedItems.add(item);
 
-                if(item.getAc() > 0)
+                if (item.getAc() > 0)
                 {
-                    this.Ac = chosenClass.getAc() + item.getAc();
+                     Ac = chosenClass.getAc() + item.getAc();
                 }
-                else if(item.getAttackRoll() > 0)
+                else if (item.getAttackRoll() > 0)
                 {
-                    attackRollWithItem = attackRoll.nextInt(20)+1 + item.getAttackRoll();
+                     attackRollWithItem = attackRoll.nextInt(20) + 1 + item.getAttackRoll();
                 }
-                else if(item.getDamage() > 0)
+                else if (item.getDamage() > 0)
                 {
-                    damage = chosenClass.getDamage() + item.getDamage();
+                     damage = chosenClass.getDamage() + item.getDamage();
                 }
             }
             else
             {
                 System.out.println("you dont have that item!");
+
             }
         }
     }
@@ -135,12 +139,24 @@ public class Player
         return null;
     }
 
+    public String getNameOfPlayer()
+    {
+        return nameOfPlayer;
+    }
+
+    public void setNameOfPlayer(String nameOfPlayer)
+    {
+        this.nameOfPlayer = nameOfPlayer;
+    }
+
+
+
     public void eatFood()
     {
         if (itemInventory.contains("generic food") || itemInventory.contains("potion"))
         {
-            hp = hp + hpRandomizer.nextInt(8) + 1;
-            System.out.println("your hp is " + hp);
+            hp = hp + chosenClass.getHitPointsmodifier();
+            System.out.println("your hp is hp is" + hp +" hp");
             System.out.println("fight on brave adventure!");
 
             if (itemInventory.contains("generic food"))
@@ -156,11 +172,21 @@ public class Player
         {
             hp = hp - 1;
             System.out.println("you starve!!!");
-            System.out.println(hp);
+            System.out.println("your hp is" + hp +"hp");
+            if (hp < 1)
+            {
+
+            }
 
         }
     }
-
+    //combat
+    public void combatSystem() {
+        while (chosenClass.getHitPointsmodifier() > 0 && monster.getMonsterHitpoints() > 0) {
+            attack();
+            monsterAttack();
+        }
+    }
 
     public void attack()
     {
@@ -176,10 +202,11 @@ public class Player
         }
 
     }
+
     public void monsterAttack()
     {
         int attack = attackRoll.nextInt(20) + 1;
-        if (chosenClass.getAc() < attack )
+        if (chosenClass.getAc() < attack)
         {
             int monsterDamage = attackRoll.nextInt(8) + (monster.getStrength() - 10) / 2;
             System.out.println(monsterDamage);
@@ -188,7 +215,6 @@ public class Player
         {
             System.out.println("the monsters attack missed you this time");
         }
-
     }
 
     public PlayerClass getChosenClass()
@@ -199,8 +225,25 @@ public class Player
     public void setChosenClass(PlayerClass chosenClass)
     {
         this.chosenClass = chosenClass;
+        calculateHp();
+    }
+    public void calculateHp()
+    {
+        Random randomizer = new Random();
+        int classHitPointsmodifier = chosenClass.getHitPointsmodifier();
+        hp = randomizer.nextInt(classHitPointsmodifier) + 1 + (chosenClass.getConstitution() - 10) / 2;
     }
 
+//getters and setters
+    public int getHp()
+    {
+        return hp;
+    }
+
+    public void setHp(int hp)
+    {
+        this.hp = hp;
+    }
 /*public static void main(String[] args)
 {
 

@@ -13,8 +13,8 @@ public class Wizard extends PlayerClass
         setIntellect(randomizer.nextInt(10) + 1 + 10);
         setStrength(randomizer.nextInt(10) + 1 + 10);
         setWisdom(randomizer.nextInt(10) + 1 + 10);
-        setHitPointsmodifier(randomizer.nextInt(4) + 1 + (getConstitution() - 10) / 2);
-        setAc(10 + getDexterity()/*+equippedItems()*/);
+        setHitPointsmodifier(4);
+        setAc(10 + getDexterity());
 
 
     }
