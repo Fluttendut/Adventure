@@ -9,10 +9,30 @@ public class Room
     private Room roomSouth;
     private Room roomWest;
     private boolean visitedRoom = false;
+    private ArrayList<Monster> monsters = new ArrayList<>();
 
     //coordinates for 2d array - map
     public int X;
     public int Y;
+
+    public void addMonster(Monster monster)
+    {
+        monsters.add(monster);
+    }
+
+    public void removeMonster(Monster monster)
+    {
+        monsters.remove(monster);
+    }
+
+    public Monster getNextMonster()
+    {
+        return monsters.get(0);
+    }
+    public boolean isMonsterpresent()
+    {
+        return monsters.size() > 0;
+    }
 
     public ArrayList <Item> items = new  ArrayList <Item> ();
 

@@ -13,8 +13,6 @@ public class Monster
     private int hitPointsmodifier;
     private int monsterHitpoints;
 
-
-
     public Monster()
     {
         super();
@@ -30,13 +28,24 @@ public class Monster
 
         setAc(10 + getDexterity());
         monsterHitpoints = hitPointsmodifier;
+    }
 
+    public void attack(Player player)
+    { Random attackRandomizer = new Random();
+        int attackRoll = attackRandomizer.nextInt(20) + 1;
+        if (attackRoll > player.getChosenClass().getAc())
+        {
+            int damage = attackRandomizer.nextInt(20) + (strength - 10) / 2;
+            System.out.println(damage);
+            player.setHp(player.getHp()-damage);
+        }
+        else
+        {
+            System.out.println("Monsters attack missed you this time!");
+        }
 
     }
-    {
         //set default stats
-
-    }
 
     public int getDexterity()
     {

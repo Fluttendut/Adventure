@@ -12,7 +12,7 @@ public class Ranger extends PlayerClass{
         setIntellect(randomizer.nextInt(10)+1+10);
         setStrength(randomizer.nextInt(10)+1+10);
         setHitPointsmodifier(8);
-        setHitPointsmodifier(randomizer.nextInt(8)+1+(getConstitution()-10)/2);
+
 
 
 

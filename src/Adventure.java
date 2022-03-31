@@ -1,4 +1,3 @@
-import java.awt.datatransfer.StringSelection;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -17,30 +16,30 @@ public class Adventure
     Room roomSeven = new Room("You are at the lava pits of #*@?%! Don't fall in the hot stuff! ", 7);
     Room roomEight = new Room("You are at the dragons lair! It is not here at the moment, but be careful as it might come back!", 8);
     Room roomNine = new Room("You are walking down a country road! The road is so long, so long....", 9);
-    Room roomTen = new Room("As you enter the cave, you hear a loud crash, the way back has been blocked, there is only one way forward. you have entered a long narrow corridor, where does it lead?",10);
-    Room roomEleven = new Room("At the end of the long corridor you find yourself in complete darkness,if only you had a torch ",11);
-    Room roomTwelve = new Room("as you enter the room, you see a suspension bridge! as you cross the bridge, it snaps under you and you fall into the darkness",12);
-    Room roomThirteen = new Room("You have entered a strange looking cave with what appears to be a small shop",13);
-    Room roomFourteen = new Room("as you enter the room a log swings from the ceiling and hits you in the chest",14);
-    Room roomFifteen = new Room("You have entered a cave with shining mushrooms! this is very bright considering its a dark cave!!!",15);
-    Room roomSixteen = new Room("You wake up at the bottom of a pit, looks like there is a tunnel with light at the end of it! as you near the end of the tunnel, you see a sunflower beaming with light! how very strange",16);
-    Room roomSeventeen = new Room("you exit the shop though the backdoor, as you reach the end of the path you find the view of beautiful a lake",17);
-    Room roomEighteen = new Room("You climb out of the underdark and feel the warmth of the sun on your skin! you have missed this feeling!",18);
-    Room roomNineteen = new Room("This looks like the entrance to a Dungeon! maybe you could find some loot",19);
-    Room roomTwenty = new Room("You have entered the dungeon, you find a split in the path you can go north or west.",20);
-    Room roomTwentyone = new Room("The room you have entered is all slimy! Your skin feels sticky and cold.",21);
-    Room roomTwentytwo = new Room("You have entered a loooong hallway, and all you can see is a light at the end. Better go towards it!",22);
-    Room roomTwentythree = new Room("You have entered a room with blood splatter all over! Let's hope it's not your blood next.",23);
-    Room roomTwentyfour = new Room("You have entered a super tiny room with a huge door! On the other side you hear a roar!",24);
-    Room roomTwentyfive = new Room("You have entered the boss room! prepare to fight for your life!",25);
-    Room roomTwentysix = new Room("You have entered the dungeons' treasury! look at all the shiny loot just lying around",26);
-    Room roomTwentyseven = new Room("You have escaped! There are remains of souls much less fortunate than you ",27);
-    Room roomTwentyeight = new Room("The room is filled with candles and the air is thick with heavy stench.. what is that??",28);
-    Room roomTwentynine = new Room("You enter a room so slim that you have to walk sideways. You will have to push your way through the room",29);
-    Room roomThirty = new Room("Entrance to the trolls lair",30);
-    Room roomThirtyone = new Room("You have entered the trolls lair! the smell makes you nauseous",31);
-    Room roomThirtytwo = new Room("You are facing the troll! Prepare yourself for the worst!",32);
-    Room roomThirtyThree = new Room("Exit from the Trolls lair, you stand High above the entrance and would have to climb down carefully",33);
+    Room roomTen = new Room("As you enter the cave, you hear a loud crash, the way back has been blocked, there is only one way forward. you have entered a long narrow corridor, where does it lead?", 10);
+    Room roomEleven = new Room("At the end of the long corridor you find yourself in complete darkness,if only you had a torch ", 11);
+    Room roomTwelve = new Room("as you enter the room, you see a suspension bridge! as you cross the bridge, it snaps under you and you fall into the darkness", 12);
+    Room roomThirteen = new Room("You have entered a strange looking cave with what appears to be a small shop", 13);
+    Room roomFourteen = new Room("as you enter the room a log swings from the ceiling and hits you in the chest", 14);
+    Room roomFifteen = new Room("You have entered a cave with shining mushrooms! this is very bright considering its a dark cave!!!", 15);
+    Room roomSixteen = new Room("You wake up at the bottom of a pit, looks like there is a tunnel with light at the end of it! as you near the end of the tunnel, you see a sunflower beaming with light! how very strange", 16);
+    Room roomSeventeen = new Room("you exit the shop though the backdoor, as you reach the end of the path you find the view of beautiful a lake", 17);
+    Room roomEighteen = new Room("You climb out of the underdark and feel the warmth of the sun on your skin! you have missed this feeling!", 18);
+    Room roomNineteen = new Room("This looks like the entrance to a Dungeon! maybe you could find some loot", 19);
+    Room roomTwenty = new Room("You have entered the dungeon, you find a split in the path you can go north or west.", 20);
+    Room roomTwentyone = new Room("The room you have entered is all slimy! Your skin feels sticky and cold.", 21);
+    Room roomTwentytwo = new Room("You have entered a loooong hallway, and all you can see is a light at the end. Better go towards it!", 22);
+    Room roomTwentythree = new Room("You have entered a room with blood splatter all over! Let's hope it's not your blood next.", 23);
+    Room roomTwentyfour = new Room("You have entered a super tiny room with a huge door! On the other side you hear a roar!", 24);
+    Room roomTwentyfive = new Room("You have entered the boss room! prepare to fight for your life!", 25);
+    Room roomTwentysix = new Room("You have entered the dungeons' treasury! look at all the shiny loot just lying around", 26);
+    Room roomTwentyseven = new Room("You have escaped! There are remains of souls much less fortunate than you ", 27);
+    Room roomTwentyeight = new Room("The room is filled with candles and the air is thick with heavy stench.. what is that??", 28);
+    Room roomTwentynine = new Room("You enter a room so slim that you have to walk sideways. You will have to push your way through the room", 29);
+    Room roomThirty = new Room("Entrance to the trolls lair", 30);
+    Room roomThirtyone = new Room("You have entered the trolls lair! the smell makes you nauseous", 31);
+    Room roomThirtytwo = new Room("You are facing the troll! Prepare yourself for the worst!", 32);
+    Room roomThirtyThree = new Room("Exit from the Trolls lair, you stand High above the entrance and would have to climb down carefully", 33);
 
     Room currentRoom = roomOne;
     Player player;
@@ -49,22 +48,24 @@ public class Adventure
 
     String discoveredRoomString = "| |";
 
-    private String getDiscoveredRoomString(Room room){
+    private String getDiscoveredRoomString(Room room)
+    {
         return String.format("|%d|", room.getRoomNumber());
     }
-    String undiscoveredRoomString ="   ";
+
+    String undiscoveredRoomString = "   ";
 
     public Adventure(Player player)
     {
         //here an item is created and placed in a room
 
-        Item item1 = new Item("Axe",2,random.nextInt(6)+1 );
+        Item item1 = new Item("Axe", 2, random.nextInt(6) + 1);
         roomOne.addItems(item1);
 
         Item item2 = new Item("Shield", 2);
         roomEleven.addItems(item2);
 
-        Item item3 = new Item("Sword",4,random.nextInt(8)+1);
+        Item item3 = new Item("Sword", 4, random.nextInt(8) + 1);
         roomEight.addItems(item3);
 
         Item item4 = new Item("Armor", 4);
@@ -76,7 +77,7 @@ public class Adventure
         Item item6 = new Item("Lucky coin", 1);
         roomTwentyone.addItems(item6);
 
-        Item item7 = new Item("Wand", 3, random.nextInt(5)+1);
+        Item item7 = new Item("Wand", 3, random.nextInt(5) + 1);
         roomTwenty.addItems(item7);
 
         Item food = new Item("Loaf of bread");
@@ -103,11 +104,17 @@ public class Adventure
         setMap();
     }
 
+
+    //monsters being added to rooms
+
+
     public void setMap()
     {
         //sets all rooms to be undiscovered
-        for (int row = 0; row < map.length; row++) {
-            for (int col = 0; col < map[row].length; col++) {
+        for (int row = 0; row < map.length; row++)
+        {
+            for (int col = 0; col < map[row].length; col++)
+            {
                 map[row][col] = undiscoveredRoomString;
             }
         }
@@ -124,6 +131,7 @@ public class Adventure
         roomTwo.setRoomEast(roomThree);
         roomTwo.X = 4;
         roomTwo.Y = 7;
+        roomTwo.addMonster(new Orc());
 
         //RoomThree
         roomThree.setRoomWest(roomTwo);
@@ -142,6 +150,8 @@ public class Adventure
         roomFive.setRoomSouth(roomEight);
         roomFive.X = 5;
         roomFive.Y = 7;
+        roomFive.addMonster(new Orc());
+
 
         //RoomSix
         roomSix.setRoomNorth(roomThree);
@@ -216,7 +226,7 @@ public class Adventure
         roomSeventeen.Y = 8;
 
         //RoomEighteen
-        roomEighteen.setRoomEast (roomSeventeen);
+        roomEighteen.setRoomEast(roomSeventeen);
         roomEighteen.setRoomWest(roomThree);
         roomEighteen.X = 0;
         roomEighteen.Y = 10;
@@ -310,8 +320,10 @@ public class Adventure
         roomThirtyThree.Y = 8;
     }
 
-    private void discoverRoom(Room room) {
-        if (!room.isVisitedRoom()){
+    private void discoverRoom(Room room)
+    {
+        if (!room.isVisitedRoom())
+        {
             room.setVisitedRoom(true);
             map[room.X][room.Y] = getDiscoveredRoomString(room);
         }
@@ -319,6 +331,7 @@ public class Adventure
 
     //getter setter for game in Mainmenu
     Mainmenu mainmenu = new Mainmenu();
+
     public boolean isGame()
     {
         return game;
@@ -329,6 +342,7 @@ public class Adventure
         this.game = game;
     }
 
+    //this could made into one method() and be done as a switch case cause only one parameter changes.
     public Room goingNorth(Room current)
     {
         if (current.getRoomNorth() != null)
@@ -336,6 +350,7 @@ public class Adventure
             current = current.getRoomNorth();
             discoverRoom(current);
             System.out.println("You went north");
+
             return current;
         }
         return current;
@@ -380,7 +395,7 @@ public class Adventure
 
     public Room teleport()
     {
-        if(player.itemInventory.contains("scroll of teleportation"))
+        if (player.itemInventory.contains("scroll of teleportation"))
         {
             System.out.println("type the magic words");
             Scanner input = new Scanner(System.in);
@@ -399,11 +414,13 @@ public class Adventure
     }
 
     //this method loops the game instead of the while loop above the switch
-    public void playTillExit(Helper helper){
+    public void playTillExit(Helper helper)
+    {
         boolean activeGame = true;
-        while (activeGame == true){
+        while (activeGame == true)
+        {
             activeGame = userInterface(helper);
-            if(player.getHp() >= 0)
+            if (player.getHp() <= 0)
             {
                 activeGame = false;
                 System.out.println("you've died");
@@ -412,8 +429,9 @@ public class Adventure
     }
 
     public boolean darkness()
+
     {
-        int directionDarkness = random.nextInt(3)+1;
+        int directionDarkness = random.nextInt(3) + 1;
         switch (directionDarkness)
         {
             case 1:
@@ -429,29 +447,42 @@ public class Adventure
                 game = false;
                 return true;
             default:
-                game = false;    //todo fix text
-                System.out.println("NO! Wrong input! :(");
+                game = false;
+                System.out.println("you bonk your head in the dark");
                 return true;
         }
-
     }
-    public void combat(Monster monster)
+
+    public void combat(Monster monster, Room room)
     {
+        System.out.println("you've encountered a monster!!! get ready for battle!");
         boolean combatInProgress = true;
         Scanner input = new Scanner(System.in);
-        //player.getChosenClass().getHitPointsmodifier() > 0 && monster.getMonsterHitpoints() > 0
-        while(combatInProgress)
+        while (combatInProgress)
         {
-            System.out.println("inside whileloop");
+            System.out.println("what do you want to do?");
             switch (input.nextInt())
             {
                 case 1:
                     player.eatFood();
                 case 2:
-                    player.attack();
+                    player.attack(monster);
             }
-            player.monsterAttack();
-            combatInProgress = player.getChosenClass().getHitPointsmodifier() > 0 && monster.getMonsterHitpoints() > 0;
+            if (monster.getMonsterHitpoints() <= 0)
+            {
+                room.removeMonster(monster);
+                System.out.println("monster is dead");
+                combatInProgress = false;
+            }
+            else
+            {
+                monster.attack(player);
+                if (player.getHp() <= 0)
+                {
+                    System.out.println("you have died!");
+                    combatInProgress = false;
+                }
+            }
         }
     }
 
@@ -461,9 +492,9 @@ public class Adventure
         Scanner sc = new Scanner(System.in);
 
         //change room dynamic
-        if(currentRoom == roomEleven)
+        if (currentRoom == roomEleven)
         {
-            if(!player.itemInventory.contains("torch")) return darkness();
+            if (!player.itemInventory.contains("torch")) return darkness();
             System.out.println("you wondered around in the darkness and stumble upon an exit");
         }
 
@@ -515,10 +546,18 @@ public class Adventure
         {
             case 1:
                 currentRoom = goingNorth(currentRoom);
+                while (currentRoom.isMonsterpresent() && player.getHp() > 0)
+                {
+                    combat(currentRoom.getNextMonster(), currentRoom);
+                }
                 game = false;
                 return true;
             case 2:
                 currentRoom = goingEast(currentRoom);
+                while (currentRoom.isMonsterpresent() && player.getHp() > 0)
+                {
+                    combat(currentRoom.getNextMonster(), currentRoom);
+                }
                 game = false;
                 return true;
                 /*In the following statement, we have prg.currentRoom this is a local variable we use to save our new
@@ -527,10 +566,18 @@ public class Adventure
                  */
             case 3:
                 currentRoom = goingSouth(currentRoom);
+                while (currentRoom.isMonsterpresent() && player.getHp() > 0)
+                {
+                    combat(currentRoom.getNextMonster(), currentRoom);
+                }
                 game = false;
                 return true;
             case 4:
                 currentRoom = goingWest(currentRoom);
+                while (currentRoom.isMonsterpresent() && player.getHp() > 0)
+                {
+                    combat(currentRoom.getNextMonster(), currentRoom);
+                }
                 game = false;
                 return true;
             case 5:
@@ -542,7 +589,7 @@ public class Adventure
                 sc.nextLine();
                 String targetItem = sc.nextLine();
                 Item item = currentRoom.takeItem(targetItem);
-                if(item == null)
+                if (item == null)
                 {
                     System.out.println("this item doesnt exist");
                 }
@@ -561,7 +608,7 @@ public class Adventure
                 sc.nextLine();
                 String targetItemToDrop = sc.nextLine();
                 Item itemToDrop = player.dropItem(targetItemToDrop);
-                if(itemToDrop == null)
+                if (itemToDrop == null)
                 {
                     System.out.println("You dont have that item");
                 }
@@ -602,7 +649,8 @@ public class Adventure
         }
     }
 
-    private void drawMap() {
+    private void drawMap()
+    {
         for (String[] rows : map)
         {
             for (String room : rows)

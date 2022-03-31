@@ -176,23 +176,14 @@ public class Player
         }
     }
 
-    //combat
-    public void combatSystem()
-    {
-        while (chosenClass.getHitPointsmodifier() > 0 && monster.getMonsterHitpoints() > 0)
-        {
-            attack();
-            monsterAttack();
-        }
-    }
-
-    public void attack()
+    public void attack(Monster monster)
     {
         int attackRoll = this.attackRoll.nextInt(20) + 1;
         if (attackRoll > monster.getMonsterAC())
         {
             int damage = this.attackRoll.nextInt(20) + (chosenClass.getStrength() - 10) / 2;
             System.out.println(damage);
+            monster.setMonsterHitpoints(monster.getMonsterHitpoints()-damage);
         }
         else
         {
@@ -201,19 +192,6 @@ public class Player
 
     }
 
-    public void monsterAttack()
-    {
-        int attack = attackRoll.nextInt(20) + 1;
-        if (chosenClass.getAc() < attack)
-        {
-            int monsterDamage = attackRoll.nextInt(8) + (monster.getStrength() - 10) / 2;
-            System.out.println(monsterDamage);
-        }
-        else
-        {
-            System.out.println("the monsters attack missed you this time");
-        }
-    }
 
     public PlayerClass getChosenClass()
     {
