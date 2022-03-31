@@ -10,7 +10,10 @@ public class Warrior extends PlayerClass{
         setDexterity(randomizer.nextInt(10)+1+10);
         setIntellect(randomizer.nextInt(10)+1+10);
         setStrength(randomizer.nextInt(10)+1+10);
-        setHitPointsmodifier(10000);
+        setHitPointsmodifier(10);
+        getAc();
+
+
 
 
 

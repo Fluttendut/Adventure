@@ -33,7 +33,7 @@ public class Monster
     { Random attackRandomizer = new Random();
         int attackRoll = attackRandomizer.nextInt(15) + 1;
         //System.out.println("this is the monsters attackRoll " + attackRoll);
-        //System.out.println("player AC " + player.getChosenClass().getAc());
+        System.out.println("player AC " + player.getChosenClass().getAc());
         if (attackRoll > player.getChosenClass().getAc())
         {
             int damage = attackRandomizer.nextInt(4)+1 + (strength - 10) / 2;

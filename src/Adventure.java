@@ -72,7 +72,7 @@ public class Adventure
         roomFive.addItems(item4);
 
         Item item5 = new Item("Torch");
-        roomTwo.addItems(item5); //TODO counters darkness if it is implemented
+        roomTwo.addItems(item5);
 
         Item item6 = new Item("Lucky coin", 1);
         roomTwentyone.addItems(item6);
@@ -86,8 +86,6 @@ public class Adventure
         Item item8 = new Item("Broken arrow");
         roomTen.addItems(item8);
 
-//todo add loot to trolls lair and dungeon, preferably in the form of chests with loot in
-
         Item item9 = new Item("Scroll of teleportation");
         roomTwentyseven.addItems(item9);
         roomThirteen.addItems(item9);
@@ -98,7 +96,8 @@ public class Adventure
         roomTwentyfive.addItems(item10);
         roomThirty.addItems(item10);
         roomSixteen.addItems(item10);
-
+        roomSixteen.addItems(item10);
+        roomSixteen.addItems(item10);
 
         this.player = player;
         setMap();
@@ -153,7 +152,7 @@ public class Adventure
         roomFive.setRoomSouth(roomEight);
         roomFive.X = 5;
         roomFive.Y = 7;
-        roomFive.addMonster(new Orc());
+        roomFive.addMonster(new Minotaur());
 
 
         //RoomSix
@@ -161,6 +160,9 @@ public class Adventure
         roomSix.setRoomSouth(roomNine);
         roomSix.X = 5;
         roomSix.Y = 8;
+        roomSix.addMonster(new Goblin());
+        roomSix.addMonster(new Goblin());
+        roomSix.addMonster(new Goblin());
 
         //RoomSeven
         roomSeven.setRoomNorth(roomFour);
@@ -182,7 +184,7 @@ public class Adventure
         roomNine.X = 6;
         roomNine.Y = 8;
 
-        //RoomTen //todo ask tutor why crash on south
+        //RoomTen
         roomTen.setRoomNorth(roomEleven);
         roomTen.X = 3;
         roomTen.Y = 8;
@@ -239,6 +241,8 @@ public class Adventure
         roomNineteen.setRoomWest(roomTwenty);
         roomNineteen.X = 6;
         roomNineteen.Y = 5;
+        roomSix.addMonster(new Orc());
+        roomSix.addMonster(new Goblin());
 
         //RoomTwenty
         roomTwenty.setRoomNorth(roomTwentyone);
@@ -283,11 +287,13 @@ public class Adventure
         roomTwentysix.setRoomWest(roomTwentyseven);
         roomTwentysix.X = 5;
         roomTwentysix.Y = 1;
+        roomSix.addMonster(new Troll());
 
         //Twentyseven treasure room
         roomTwentyseven.setRoomWest(roomTwentysix);
         roomTwentyseven.X = 5;
         roomTwentyseven.Y = 0;
+
 
         //Twentyeight
         roomTwentyeight.setRoomNorth(roomTwentysix);
@@ -316,6 +322,7 @@ public class Adventure
         roomThirtytwo.setRoomWest(roomThirtyThree);
         roomThirtytwo.X = 7;
         roomThirtytwo.Y = 10;
+        roomSix.addMonster(new Troll());
 
         //thirtythree
         roomThirtyThree.setRoomNorth(roomNine);
@@ -430,6 +437,46 @@ public class Adventure
             }
         }
     }
+    public boolean riddleMeThis()
+    {
+        System.out.println("""
+                You have stumbpled upon a sphinx, who asks you a riddle:
+                what walks on 4 legs in the morning
+                walks on 2 leg in the day
+                walks on 3 legs in the evening?
+                
+                1) a Giraf
+                2) a human
+                3) one of those wierd now pokemon!
+                                
+                choose your answer wisely! muwahaha 
+              
+                """);
+        Scanner input = new Scanner(System.in);
+        int riddleAnswer = input.nextInt();
+        switch (riddleAnswer)
+        {
+            case 1:
+                game = false;
+                System.out.println("a person you illiterate swine!");
+                return true;
+
+            case 2:
+                game = false;
+                System.out.println("you are correct! you may pass!");
+                return true;
+
+            case 3:
+                game = false;
+                System.out.println("i cant argue with that answer! off you go!");
+                return true;
+
+            default:
+                System.out.println("the Sphinx hits you over the head");
+                return true;
+        }
+
+    }
 
     public boolean darkness()
 
@@ -503,6 +550,10 @@ public class Adventure
         {
             if (!player.itemInventory.contains("torch")) return darkness();
             System.out.println("you wondered around in the darkness and stumble upon an exit");
+        }
+        if (currentRoom == roomTwentythree)
+        {
+            riddleMeThis();
         }
 
 
@@ -641,7 +692,7 @@ public class Adventure
                 drawMap();
                 return true;
             case 13:
-                System.out.println("Which item would you like to equip?"); //todo be aware of scannerbug
+                System.out.println("Which item would you like to equip?");
                 sc.nextLine();
                 String selectedItem = sc.nextLine();
                 player.equip(selectedItem);

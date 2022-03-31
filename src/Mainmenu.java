@@ -53,10 +53,6 @@ public class Mainmenu
         {
             helper.help();
         }
-        else
-        {
-            //todo insert loop to redo start up if non of options are chosen. can you put in the Mainmenu() here so it calls itself? or is that bad practice?
-        }
     }
 
 }

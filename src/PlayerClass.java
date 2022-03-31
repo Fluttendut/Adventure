@@ -6,7 +6,7 @@ public abstract class PlayerClass
     private int wisdom;
     private int charisma;
     private int constitution;
-    private int Ac = 10;
+    private int Ac = 12;
     private int hitPointsmodifier;
     private int damage = 4;
     private int attackRoll;
