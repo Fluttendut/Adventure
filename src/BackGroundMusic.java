@@ -8,8 +8,9 @@ public class BackGroundMusic {
     //First background music (?)
     void playMusic() {
         try {
-            String musicLocation = "musik.wav";
+            String musicLocation = "music.wav";
             File musicPath = new File(musicLocation);
+
             if (musicPath.exists()) {
                 AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
                 Clip clip = AudioSystem.getClip();

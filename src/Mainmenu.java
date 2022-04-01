@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Mainmenu
 {
-    //getPlayMusic()
+
     Scanner input = new Scanner(System.in);
     Helper helper = new Helper();
     BackGroundMusic playMusic = new BackGroundMusic();

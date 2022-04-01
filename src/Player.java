@@ -152,6 +152,7 @@ public class Player
 
     public void eatFood()
     {
+        //todo find a solution to this issue
         if (itemInventory.contains("Loaf of bread") || itemInventory.contains("potion"))
         {
             hp = hp + chosenClass.getHitPointsmodifier();
@@ -160,7 +161,7 @@ public class Player
 
             if (itemInventory.contains("Loaf of bread"))
             {
-                itemInventory.remove("food");
+                itemInventory.remove("Loaf of bread");
             }
             else
             {

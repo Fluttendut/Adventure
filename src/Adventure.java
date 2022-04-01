@@ -448,7 +448,7 @@ public class Adventure
                 
                 1) a Giraf
                 2) a human
-                3) one of those weird now pokemon!
+                3) one of those weird new pokemon!
                                 
                 choose your answer wisely! muwahaha 
               
