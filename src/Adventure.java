@@ -95,6 +95,7 @@ public class Adventure
         roomTwo.addItems(item10); //refills hp if hp is implemented
         roomTwentyfive.addItems(item10);
         roomThirty.addItems(item10);
+        roomOne.addItems(item10);
         roomSixteen.addItems(item10);
         roomSixteen.addItems(item10);
         roomSixteen.addItems(item10);
@@ -440,14 +441,14 @@ public class Adventure
     public boolean riddleMeThis()
     {
         System.out.println("""
-                You have stumbpled upon a sphinx, who asks you a riddle:
+                You have stumpled upon a sphinx, who asks you a riddle:
                 what walks on 4 legs in the morning
                 walks on 2 leg in the day
                 walks on 3 legs in the evening?
                 
                 1) a Giraf
                 2) a human
-                3) one of those wierd now pokemon!
+                3) one of those weird now pokemon!
                                 
                 choose your answer wisely! muwahaha 
               
